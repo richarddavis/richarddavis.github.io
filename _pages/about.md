@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: CHILI Lab at EPFL in Lausanne, Switzerland
+subtitle: Postdoc in the CHILI Lab at EPFL in Lausanne, Switzerland
 
 profile:
   align: right
