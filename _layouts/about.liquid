@@ -15,90 +15,99 @@ layout: default
   </header>
 
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
+    <div class="row">
+      <!-- Left column: profile, about, research, etc. -->
+      <div class="col-lg-8 col-md-7">
+        {% if page.profile %}
+          <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+            {% if page.profile.image %}
+              {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+              {% if page.profile.image_circular %}
+                {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+              {% else %}
+                {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+              {% endif %}
+              {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px) 30vw, 95vw"{% endcapture %}
+              {% include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image cache_bust=true %}
+            {% endif %}
+            {% if page.profile.more_info %}
+              <div class="more-info">{{ page.profile.more_info }}</div>
+            {% endif %}
 
-        <!-- Social icons directly under profile -->
-        {% if page.social %}
-          <div class="social">
-            <div class="contact-icons">{% include social.liquid %}</div>
-            {% if site.contact_note %}
-              <div class="contact-note">{{ site.contact_note }}</div>
+            <!-- Social icons directly under profile -->
+            {% if page.social %}
+              <div class="social">
+                <div class="contact-icons">{% include social.liquid %}</div>
+                {% if site.contact_note %}
+                  <div class="contact-note">{{ site.contact_note }}</div>
+                {% endif %}
+              </div>
             {% endif %}
           </div>
         {% endif %}
-      </div>
-    {% endif %}
 
-    <!-- About Me Section -->
-    {% if page.about_content %}
-      <div class="section-container">
-        <div class="clearfix">
-          {{ page.about_content | markdownify }}
-        </div>
+        <!-- About Me Section -->
+        {% if page.about_content %}
+          <div class="section-container">
+            <div class="clearfix">
+              {{ page.about_content | markdownify }}
+            </div>
+          </div>
+        {% endif %}
       </div>
-    {% endif %}
+
+      <!-- Right column: News -->
+      <div class="col-lg-4 col-md-5">
+        {% if page.announcements and page.announcements.enabled %}
+          <div class="section-container">
+            <h3 class="category">
+              <a href="{{ '/news/' | relative_url }}" style="color: inherit">Recent News</a>
+            </h3>
+            {% include news.liquid limit=true %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
 
     <!-- Research Summary Section -->
     {% if page.research_content %}
-      <div class="section-container">
-        <h2 class="category">Research Summary</h2>
-        <div class="clearfix">
-          {{ page.research_content | markdownify }}
+      <div class="row">
+        <div class="col-12">
+          <div class="section-container">
+            <h2 class="category">Research Summary</h2>
+            <div class="clearfix">
+              {{ page.research_content | markdownify }}
+            </div>
+          </div>
         </div>
       </div>
     {% endif %}
 
-    <!-- Main content fallback (if no separate sections defined) -->
-    {% unless page.about_content or page.research_content %}
-      <div class="clearfix">{{ content }}</div>
-    {% endunless %}
-
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <div class="section-container">
-        <h2>
-          <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
-        </h2>
-        {% include news.liquid limit=true %}
-      </div>
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <div class="section-container">
-        <h2>
-          <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a>
-        </h2>
-        {% include latest_posts.liquid %}
-      </div>
-    {% endif %}
-
-    <!-- Selected papers -->
+    <!-- Publications row spanning full width -->
     {% if page.selected_papers %}
-      <div class="section-container">
-        <h2>
-          <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Publications</a>
-        </h2>
-        {% include selected_papers.liquid %}
+      <div class="row">
+        <div class="col-12">
+          <div class="section-container">
+            <h2>
+              <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Publications</a>
+            </h2>
+            {% include selected_papers.liquid %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Latest posts (if enabled) remain below publications -->
+    {% if page.latest_posts and page.latest_posts.enabled %}
+      <div class="row">
+        <div class="col-12">
+          <div class="section-container">
+            <h2>
+              <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a>
+            </h2>
+            {% include latest_posts.liquid %}
+          </div>
+        </div>
       </div>
     {% endif %}
 
