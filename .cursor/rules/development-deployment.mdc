@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Development and deployment guidelines for Jekyll al-folio
+globs: 
+alwaysApply: false
+---
+
+# Development and Deployment Guidelines
+
+## Local Development Setup
+### Development Workflow
+- Use `bundle exec` prefix for Jekyll commands
+- Auto-regeneration enabled by default
+- Check `_site/` for generated output
+
+## Environment Configuration
+### Development vs Production
+- Development: Full content, drafts included
+- Production: Optimized assets, no drafts
+- Environment variables in `_config.yml`
+
+### GitHub Pages Deployment
+- Automatic deployment on push to `main` branch
+- Uses GitHub Actions or Pages built-in Jekyll
+- Check `.github/workflows/` for CI/CD configuration
+- Site deployed to `https://richarddavis.github.io`
+
+## Dependency Management
+### Ruby Gems
+- Listed in `Gemfile`
+- Update with `bundle update`
+- Lock versions in `Gemfile.lock`
+
+### Node Packages
+- Listed in `package.json`
+- Install with `npm install`
+- Update with `npm update`
+
+## Performance Optimization
+### Asset Pipeline
+- SASS compilation handled by Jekyll
+- JavaScript minification in production
+- Image optimization recommended
+- CSS/JS concatenation via Jekyll plugins
+
+### SEO and Meta
+- Open Graph meta tags (if enabled)
+- Structured data markup
+- Sitemap generation
+- RSS feed generation

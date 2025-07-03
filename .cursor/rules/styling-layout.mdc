@@ -1,0 +1,87 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Styling and layout customization guidelines
+globs: ["**/_sass/**", "**/assets/css/**", "**/_layouts/**", "**/_includes/**"]
+alwaysApply: false
+---
+
+# Styling and Layout Guidelines
+
+## SASS Structure (`_sass/`)
+- `_variables.scss`: Theme variables (colors, fonts, sizes)
+- `_themes.scss`: Light/dark theme definitions
+- `_base.scss`: Base HTML element styles
+- `_layout.scss`: Main layout and grid styles
+- `_cv.scss`: CV-specific styles
+- `_distill.scss`: Distill article styles
+- `font-awesome/`: Icon font styles
+- `tabler-icons/`: Icon font styles
+
+## Theme Customization
+### Color Scheme
+- Modify `--global-theme-color` in `_sass/_themes.scss`
+- Dark/light theme variables are defined separately
+- Use CSS custom properties for consistent theming
+
+### Typography
+- Font families defined in `_variables.scss`
+- Use consistent font sizing and line heights
+- Ensure accessibility with proper contrast ratios
+
+### Layout Components
+- Header and navbar in `_includes/header.liquid`
+- Footer in `_includes/footer.liquid`
+- Page layouts in `_layouts/`
+- Reusable components in `_includes/`
+
+## Responsive Design
+- Mobile-first approach
+- Use Bootstrap grid system
+- Test on multiple screen sizes
+- Ensure touch-friendly interactions
+
+## Asset Organization
+### CSS
+- Main CSS in `assets/css/main.scss`
+- Import SASS partials from `_sass/`
+- Minification handled by Jekyll
+
+### JavaScript
+- Store in `assets/js/`
+- Use descriptive filenames
+- Include dependencies properly
+- Minify for production
+
+## al-folio Specific Components
+### Academic Features
+- Publication preview cards
+- CV timeline layout
+- Project grid display
+- News feed styling
+
+### Interactive Elements
+- Search functionality
+- Theme toggle
+- Responsive navigation
+- Modal dialogs
+
+## Best Practices
+- Follow BEM CSS methodology when possible
+- Use semantic HTML elements
+- Maintain consistent spacing (use variables)
+- Optimize for performance
+- Test accessibility features
+- Keep styles modular and reusable
+- Comment complex CSS rules
+- Use vendor prefixes when needed
+
+## Customization Tips
+- Override variables rather than specific styles
+- Test theme changes in both light and dark modes
+- Ensure mobile responsiveness
+- Validate CSS with tools
+- Use browser dev tools for debugging

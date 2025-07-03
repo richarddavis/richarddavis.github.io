@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: Main Jekyll al-folio project guidelines
+globs: 
+alwaysApply: true
+---
+
+# Jekyll al-folio Project Guidelines
+
+This is a Jekyll-based academic website using the al-folio theme (https://github.com/alshedivat/al-folio).
+
+## Project Structure
+- `_config.yml`: Main Jekyll configuration file
+- `_layouts/`: HTML templates for different page types
+- `_includes/`: Reusable HTML components and partials
+- `_sass/`: SCSS stylesheets for the theme
+- `_pages/`: Static pages (about, CV, publications, etc.)
+- `_posts/`: Blog posts in markdown format
+- `_projects/`: Project showcase items
+- `_news/`: News/announcement items
+- `_bibliography/`: BibTeX files for academic publications
+- `_data/`: YAML data files (CV, repositories, socials, etc.)
+- `assets/`: Static assets (images, CSS, JS, PDFs, etc.)
+
+## Jekyll Conventions
+- Use YAML front matter for all content files
+- Follow Jekyll naming conventions: `YYYY-MM-DD-title.md` for posts
+- Liquid templating language for dynamic content
+- Collections are defined in `_config.yml` (books, news, projects)
+
+## al-folio Specific Features
+- Academic focus with CV, publications, and project showcases
+- Responsive design with dark/light theme support
+- Blog functionality with related posts
+- BibTeX integration for publications
+- Search functionality across posts and bibliography
+- Social media integration and Open Graph support
+- Newsletter integration (if enabled)

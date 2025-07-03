@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Template Documentation Review Rule
+
+At the beginning of every chat session:
+
+1. Quickly scan the project's key documentation files to refresh context, especially changes since the last session.
+2. Prioritize these Markdown files for reference:
+   - [README.md](mdc:README.md)
+   - [INSTALL.md](mdc:INSTALL.md)
+   - [FAQ.md](mdc:FAQ.md)
+   - [CUSTOMIZE.md](mdc:CUSTOMIZE.md)
+   - [CONTRIBUTING.md](mdc:CONTRIBUTING.md)
+   - [LICENSE](mdc:LICENSE)
+3. If working on specific topics (e.g., deployment, customization, contributing), read the corresponding documentation section in detail before suggesting changes.
+4. Cross-check answers and code edits against the official al-folio template docs to maintain compatibility.
+5. Cite documentation sources in responses when relevant (link to file and section).
+
+Following this rule ensures answers align with the al-folio template guidelines and reduces misinformation.
