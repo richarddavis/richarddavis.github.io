@@ -26,13 +26,8 @@ social: true # includes social icons at the bottom of the page
 about_content: |
   I am an Assistant Professor in the Division of Digital Learning, Department of Learning in Engineering Sciences at KTH Royal Institute of Technology. I hold a PhD in Learning Sciences and Technology Design and an MSc in Computer Science (AI/HCI) from Stanford University, where I worked at the intersection of education and technology. After my time at Stanford, I completed a post-doctoral fellowship in Computer Science at the Swiss Federal Institute of Technology Lausanne (EPFL) under Pierre Dillenbourg. At EPFL I also served as the co-executive director of the ETH-EPFL Joint Doctoral Program in the Learning Sciences (JDPLS).
 
+  **Areas of expertise:** Design and evaluation of educational technologies · Human-Computer Interaction · AI/ML in education and learning analytics · STEM education · Experiential Education
+
 research_content: |
   Guided by the theory of constructionism — which emphasizes learning through creating personally meaningful artefacts — my research focuses on designing, implementing, and evaluating educational tools that expand the possibilities of "learning by making" to new topics and domains. I incorporate cutting-edge technologies such as artificial intelligence (AI), digital fabrication, haptic feedback, computational crafting, and virtual/augmented reality (XR) into these tools. My work has been recognized with the Stanford Interdisciplinary Graduate Fellowship, best-paper awards at major conferences, and several grants supporting innovative AI tools for creativity and problem-solving in education.
-
-  **Areas of expertise**
-
-  * Design and evaluation of educational technologies  
-  * Human-Computer Interaction  
-  * AI in education and learning analytics  
-  * STEM education
 ---
