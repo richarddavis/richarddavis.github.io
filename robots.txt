@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://richarddavis.github.io/al-folio/sitemap.xml
+Sitemap: https://richarddavis.github.io/sitemap.xml
