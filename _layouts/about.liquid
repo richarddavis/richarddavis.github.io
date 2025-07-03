@@ -35,43 +35,74 @@ layout: default
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
+        
+        <!-- Social icons directly under profile -->
+        {% if page.social %}
+          <div class="social">
+            <div class="contact-icons">{% include social.liquid %}</div>
+            {% if site.contact_note %}
+              <div class="contact-note">{{ site.contact_note }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
       </div>
     {% endif %}
 
-    <div class="clearfix">{{ content }}</div>
+    <!-- About Me Section -->
+    {% if page.about_content %}
+      <div class="section-container">
+        <div class="clearfix">
+          {{ page.about_content | markdownify }}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Research Summary Section -->
+    {% if page.research_content %}
+      <div class="section-container">
+        <h2 class="category">Research Summary</h2>
+        <div class="clearfix">
+          {{ page.research_content | markdownify }}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Main content fallback (if no separate sections defined) -->
+    {% unless page.about_content or page.research_content %}
+      <div class="clearfix">{{ content }}</div>
+    {% endunless %}
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
+      <div class="section-container">
+        <h2>
+          <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
+        </h2>
+        {% include news.liquid limit=true %}
+      </div>
     {% endif %}
 
     <!-- Latest posts -->
     {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
+      <div class="section-container">
+        <h2>
+          <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a>
+        </h2>
+        {% include latest_posts.liquid %}
+      </div>
     {% endif %}
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
+      <div class="section-container">
+        <h2>
+          <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Publications</a>
+        </h2>
+        {% include selected_papers.liquid %}
       </div>
     {% endif %}
+
+
 
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
       {% include newsletter.liquid center=true %}
