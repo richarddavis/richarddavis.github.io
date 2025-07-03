@@ -8,7 +8,7 @@ profile:
   align: left
   image: richard_lee_davis_headshot.jpeg
   image_circular: false # crops the image to make it circular
-  address: 
+  address:
 
 announcements:
   enabled: true # includes a list of news items

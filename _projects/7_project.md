@@ -5,7 +5,7 @@ description: AI-powered intelligent agents for enhancing students' problem-solvi
 img: assets/img/1.jpg
 importance: 1
 category: work
-related_publications: 
+related_publications:
 ---
 
 ## Transforming Engineering Education with Multimodal GenAI and Intelligent Agents
@@ -28,16 +28,19 @@ The Fourth Industrial Revolution has introduced sophisticated AI technologies th
 ### Key Research Areas
 
 **Multimodal Learning Environments**
+
 - Integration of visual, auditory, textual, and kinesthetic learning modalities
 - Development of AI systems that can process and generate content across multiple formats
 - Adaptive interfaces that respond to different learning styles and preferences
 
 **Intelligent Tutoring Systems**
+
 - AI agents that provide personalized guidance and feedback
 - Real-time assessment of student comprehension and problem-solving approaches
 - Automated generation of practice problems tailored to individual skill levels
 
 **Problem-Solving Enhancement**
+
 - AI-powered tools that help students break down complex engineering problems
 - Interactive simulations and virtual laboratories
 - Collaborative problem-solving platforms with AI facilitation
@@ -57,6 +60,7 @@ The Fourth Industrial Revolution has introduced sophisticated AI technologies th
 ### Research Methodology
 
 The project employs a mixed-methods approach combining:
+
 - **Quantitative Analysis**: Measuring learning outcomes, engagement metrics, and problem-solving performance
 - **Qualitative Research**: Student interviews, classroom observations, and instructor feedback
 - **Design-Based Research**: Iterative development and testing of AI-powered educational tools
@@ -65,18 +69,21 @@ The project employs a mixed-methods approach combining:
 ### Expected Outcomes
 
 **For Students:**
+
 - Enhanced problem-solving skills through AI-guided practice
 - Personalized learning experiences adapted to individual needs
 - Improved engagement and motivation in engineering coursework
 - Better preparation for Industry 4.0 workplace demands
 
 **For Educators:**
+
 - AI-assisted curriculum development tools
 - Automated assessment and feedback systems
 - Data-driven insights into student learning patterns
 - Professional development in AI-enhanced pedagogy
 
 **For Institutions:**
+
 - Framework for integrating multimodal AI into engineering programs
 - Best practices for responsible AI implementation in education
 - Evidence-based guidelines for AI tool selection and deployment

@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:jekyll": "prettier --write \"_{layouts,includes,posts}/**/*.{liquid,md}\" \"assets/**/*.{js,css,scss}\""
+  },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "1.4.0",
     "prettier": "3.1.1"
