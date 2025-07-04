@@ -1,1 +1,5 @@
 nbconvert
+# bibtexparser is required for parsing .bib files
+bibtexparser
+# pylatexenc provides reliable LaTeX→text conversion
+pylatexenc
