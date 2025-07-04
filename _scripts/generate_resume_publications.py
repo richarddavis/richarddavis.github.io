@@ -12,19 +12,18 @@ It requires the ``bibtexparser`` Python package (listed in requirements.txt).
 from __future__ import annotations
 
 import json
-import re
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List
 
 import bibtexparser
+from pylatexenc.latex2text import LatexNodes2Text
 
 # -----------------------------------------------------------------------------
 # Helpers for cleaning / transforming BibTeX fields
 # -----------------------------------------------------------------------------
 
-LATEX_COMMAND_RE = re.compile(r"\\[a-zA-Z]+\s*")
-BRACES_RE = re.compile(r"[{}]")
+_latex_converter = LatexNodes2Text()
 
 
 MONTH_MAP = {
@@ -54,26 +53,12 @@ MONTH_MAP = {
 }
 
 
-def _latex_to_plain(text: str) -> str:
-    """Very light-weight LaTeX → plain text cleaner.
-
-    This is *not* a full LaTeX parser – it is only meant to make typical
-    BibTeX titles and abstracts readable in the JSON resume.
-    """
+def _latex_to_plain(text: str | None) -> str:
+    """Convert LaTeX-formatted text to plain Unicode using pylatexenc."""
 
     if not text:
         return ""
-
-    text = BRACES_RE.sub("", text)  # remove curly braces
-    text = text.replace("\\&", "&").replace("\\%", "%")
-
-    # Remove \emph{...}, \textit{...}, etc.
-    text = re.sub(r"\\(emph|textit|textbf){([^}]*)}", r"\2", text)
-
-    # Strip remaining backslash commands (best-effort)
-    text = LATEX_COMMAND_RE.sub("", text)
-
-    return text.strip()
+    return _latex_converter.latex_to_text(text).strip()
 
 
 def _month_to_number(month: str | None) -> str | None:
