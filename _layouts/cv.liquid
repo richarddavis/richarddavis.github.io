@@ -106,7 +106,8 @@ layout: default
                 {% when 'skills' %}
                   {% include resume/skills.liquid %}
                 {% when 'publications' %}
-                  {% include resume/publications.liquid %}
+                  {% comment %} Change back to resulme/publications.liquid to display list of publications {% endcomment %}
+                  {% include resume/link-to-publications.liquid %}
                 {% when 'languages' %}
                   {% include resume/languages.liquid %}
                 {% when 'interests' %}
