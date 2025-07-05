@@ -1,7 +1,7 @@
 {% assign doctoral = data[1] | where: 'category', 'doctoral' | sort: 'startDate' | reverse %}
 {% assign graduate = data[1] | where: 'category', 'graduate' | sort: 'endDate' | reverse %}
 
-<h5 class="font-italic">Doctoral Advising</h5>
+<h4 class="card-title font-weight-medium">Doctoral Advising</h4>
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for content in doctoral %}
     <li class="list-group-item">
@@ -38,7 +38,7 @@
   {% endfor %}
 </ul>
 
-<h5 class="font-italic mt-3">Graduate Research Project Advising</h5>
+<h4 class="card-title font-weight-medium">Graduate Research Project Advising</h4>
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for content in graduate %}
     <li class="list-group-item">

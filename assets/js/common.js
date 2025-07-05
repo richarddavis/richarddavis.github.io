@@ -26,8 +26,10 @@ $(document).ready(function () {
     var navSelector = "#toc-sidebar";
     var $myNav = $(navSelector);
     Toc.init($myNav);
+    var headerHeight = $(".navbar").outerHeight() || 0; // or your header selector
     $("body").scrollspy({
       target: navSelector,
+      offset: headerHeight + 10,
     });
   }
 
