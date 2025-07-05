@@ -106,7 +106,7 @@ layout: default
                 {% when 'skills' %}
                   {% include resume/skills.liquid %}
                 {% when 'publications' %}
-                  {% comment %} Change back to resulme/publications.liquid to display list of publications {% endcomment %}
+                  {% comment %} Change back to publications.liquid to display list of publications {% endcomment %}
                   {% include resume/link-to-publications.liquid %}
                 {% when 'languages' %}
                   {% include resume/languages.liquid %}
@@ -122,6 +122,8 @@ layout: default
                   {% include resume/peer_review.liquid %}
                 {% when 'professional service' %}
                   {% include resume/professional_service.liquid %}
+                {% when 'research supervised' %}
+                  {% include resume/research_supervised.liquid %}
                 {% else %}
 
               {% endcase %}

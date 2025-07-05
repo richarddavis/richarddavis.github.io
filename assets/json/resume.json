@@ -291,6 +291,206 @@
       "highlights": []
     }
   ],
+  "research supervised": [
+    {
+      "name": "Zhenyu Cai",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Uni Analytics: What, How, and Why Do Different Educational Stakeholders Use Learning Analytics in Higher Education?",
+      "category": "doctoral",
+      "startDate": "2022",
+      "endDate": ""
+    },
+    {
+      "name": "Kevin Gonyop Kim",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Design and evaluation of digital tools to expand experience in vocational education",
+      "category": "doctoral",
+      "startDate": "2020",
+      "endDate": "2022"
+    },
+    {
+      "name": "Ramtin Yazdanian",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Detecting Latent Training Needs Using Large Datasets",
+      "category": "doctoral",
+      "startDate": "2020",
+      "endDate": "2022"
+    },
+    {
+      "name": "Louis Perrier",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Adaptive posture manipulation to prevent static posture in VR workspace",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2024"
+    },
+    {
+      "name": "Zimi Liu",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Harnessing Tiny LLM: Development and User Testing of a RAG-Based Local Agent for Mail Management",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2024"
+    },
+    {
+      "name": "Hyeongdon Moon",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Extracting knowledge components of the question using language model",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2024"
+    },
+    {
+      "name": "Leo Litrico",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "A Sketch-Based Interface to Stable Diffusion for Creativity Support",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2023"
+    },
+    {
+      "name": "Yasmine Chaker",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "LLM Agents for Data Understanding",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2023"
+    },
+    {
+      "name": "Adrien Buttier",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "A Human-Centred Redesign of Teacher Dashboards for Higher Education",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2023"
+    },
+    {
+      "name": "Louca Geroussi",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Augmented Reality Classroom Analytics",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2023"
+    },
+    {
+      "name": "Louis Phillipe Perrier",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Programming Reality in VR",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2023"
+    },
+    {
+      "name": "Ahmed Ezzo",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "TapaCarp VR",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2022"
+    },
+    {
+      "name": "Yahya Hadi",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Data Visualization in Social Robotics Activities for Education",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2022"
+    },
+    {
+      "name": "Eugenie Kwak",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Algorithmic Fairness in University Admissions",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2022"
+    },
+    {
+      "name": "Quang Long Ho Ngo",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Building a Probabilistic Programming Language for Kids",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2022"
+    },
+    {
+      "name": "Brahim Rejeb",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Building the Next Generation of Tangible User Interfaces",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2022"
+    },
+    {
+      "name": "Nicolas Vial",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Block-based programming in VR",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2022"
+    },
+    {
+      "name": "Guillaume Barre",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Modeling Skills Dispersion in the Labor Market as a Contagion Process and Predicting Emerging Skills by Monitoring Influential Nodes",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2021"
+    },
+    {
+      "name": "Nadia Guerraoui",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Data visualisation for sports events",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2021"
+    },
+    {
+      "name": "Wei Jiang",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Mapping and Exploring Visual Design Spaces with Deep Generative Models",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2021"
+    },
+    {
+      "name": "Nicolas Kieffer",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Skill extraction from job ads",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2021"
+    },
+    {
+      "name": "Sorin-Sebastian Mircea",
+      "institution": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "location": "Lausanne, Switzerland",
+      "title": "Web-based platform for quick prototyping of ways to improve the watching experience of sporting events",
+      "category": "graduate",
+      "startDate": "",
+      "endDate": "2021"
+    }
+  ],
   "certificates": [
     {
       "name": "Machine Learning",
