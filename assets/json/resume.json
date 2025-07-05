@@ -1,61 +1,92 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Richard Lee Davis",
+    "label": "Assistant Professor",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "rldavis@kth.se",
+    "phone": "+41(0)762205838",
+    "url": "https://richarddavis.github.io/",
+    "summary": "A US-born learning scientist, specializing in learning analytics, human-computer interaction, and educational technology.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "address": "Brinellvägen 68",
+      "postalCode": "11428",
+      "city": "Stockholm",
+      "countryCode": "SE",
+      "region": "Stockholm"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "LinkedIn",
+        "username": "rldphd",
+        "url": "https://www.linkedin.com/in/rldphd/"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
-    }
-  ],
-  "volunteer": [
+      "name": "KTH Royal Institute of Technology",
+      "position": "Assistant Professor (Biträdande Lektor)",
+      "location": "Stockholm, Sweden",
+      "url": "https://www.kth.se/profile/rldavis",
+      "startDate": "2024-08-15",
+      "endDate": "",
+      "summary": "Division of Digital Learning",
+      "highlights": []
+    },
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "name": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "position": "Postdoctoral Scholar in Computer Science",
+      "location": "Lausanne, Switzerland",
+      "url": "https://www.epfl.ch/labs/chili/",
+      "startDate": "2020-08-01",
+      "endDate": "2024-08-14",
+      "summary": "Training under Pierre Dillenbourg in the Computer-Human Interaction in Learning and Instruction (CHILI) Lab.",
+      "highlights": []
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
-      "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "institution": "Stanford University",
+      "location": "Stanford, CA, USA",
+      "url": "",
+      "area": "Dissertation: Opening the Black Box: Investigating the Impact of Engineering Design on Mechanistic Problem Solving and Mechanistic Understanding",
+      "studyType": "PhD in Learning Sciences and Technology Design",
+      "startDate": "2013-09-23",
+      "endDate": "2020-09-24"
+    },
+    {
+      "institution": "Stanford University",
+      "location": "Stanford, CA, USA",
+      "url": "",
+      "area": "Dual-Depth in Artificial Intelligence & Human-Computer Interaction",
+      "studyType": "MS in Computer Science",
+      "startDate": "2015-09-21",
+      "endDate": "2017-06-18"
+    },
+    {
+      "institution": "University of Virginia",
+      "location": "Charlottesville, VA, USA",
+      "url": "https://www.virginia.edu/",
+      "area": "",
+      "studyType": "BA Philosophy, BA Studio Art, Minor Physics",
+      "startDate": "1999-09-01",
+      "endDate": "2003-06-15"
+    }
+  ],
+  "leadership": [
+    {
+      "position": "Co-Executive Director",
+      "organization": "ETH Zurich - EPFL Joint Doctoral Program in the Learning Sciences (JDPLS)",
+      "location": "Switzerland",
+      "url": "https://www.epfl.ch/education/phd/jdpls-learning-sciences/",
+      "startDate": "2022-01-01",
+      "endDate": "2024-08-14",
+      "summary": "",
+      "highlights": [
+        "Handled day-to-day academic issues involving the program.",
+        "Helped plan, organize, and facilitate mandatory PhD seminars for first-year students.",
+        "Helped plan, organize, and facilitate the JDPLS Winter School."
+      ]
     }
   ],
   "awards": [
@@ -65,50 +96,6 @@
       "awarder": "Royal Swedish Academy of Sciences",
       "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
       "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
-    }
-  ],
-  "certificates": [
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
     }
   ],
   "publications": [
@@ -132,6 +119,31 @@
       "releaseDate": "1916-03-20",
       "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
       "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+    }
+  ],
+  "peer review": [
+    { "name": "ACM CHI Conference on Human Factors in Computing Systems (CHI)" },
+    { "name": "Journal of Learning Analytics (JLA)" },
+    { "name": "International Journal of Artificial Intelligence in Education (IJAIED)" },
+    { "name": "Educational Data Mining (EDM)" },
+    { "name": "Educational Technology Research and Development (ETRD)" },
+    { "name": "International Conference of the Learning Sciences (ICLS)" },
+    { "name": "ACM Interaction Design and Children (IDC) Conference" },
+    { "name": "IEEE Transactions on Learning Technologies" },
+    { "name": "ACM FabLearn: Creativity and Fabrication in Education" },
+    { "name": "ACM Symposium on User Interface Software and Technology (UIST)" },
+    { "name": "Digital Experience in Mathematics Education" }
+  ],
+  "volunteer": [
+    {
+      "organization": "People's Climate March",
+      "location": "Zurich, Switzerland",
+      "position": "Lead Organizer",
+      "url": "https://example.com",
+      "startDate": "2014-04-01",
+      "endDate": "2015-07-01",
+      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
+      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
     }
   ],
   "skills": [
@@ -195,6 +207,106 @@
       "startDate": "2018-01-01",
       "endDate": "2018-01-01",
       "url": "https://example.com"
+    }
+  ],
+  "professional service": [
+    {
+      "position": "Associate Chair: Learning, Education, and Families Subcommittee",
+      "organization": "ACM CHI Conference on Human Factors in Computing Systems",
+      "location": "Yokohama, Japan",
+      "startDate": "2025",
+      "endDate": "",
+      "summary": "",
+      "highlights": []
+    },
+    {
+      "position": "Associate Editor: Digitized Learning and Teaching",
+      "organization": "European Conference on Information Systems",
+      "location": "Kristiansand, Norway",
+      "startDate": "2023",
+      "endDate": "",
+      "summary": "",
+      "highlights": []
+    },
+    {
+      "position": "Volunteer Chair",
+      "organization": "Interaction Design and Children (IDC) Conference",
+      "location": "Stanford, CA, USA",
+      "startDate": "2017",
+      "endDate": "",
+      "summary": "",
+      "highlights": []
+    },
+    {
+      "position": "Workshop Chair",
+      "organization": "Fablearn",
+      "location": "Stanford, CA, USA",
+      "startDate": "2016",
+      "endDate": "",
+      "summary": "",
+      "highlights": []
+    },
+    {
+      "position": "Demo Chair",
+      "organization": "Fablearn",
+      "location": "Stanford, CA, USA",
+      "startDate": "2014",
+      "endDate": "",
+      "summary": "",
+      "highlights": []
+    },
+    {
+      "position": "Demo Chair",
+      "organization": "Open Hardware Summit",
+      "location": "Cambridge, MA, USA",
+      "startDate": "2013",
+      "endDate": "",
+      "summary": "",
+      "highlights": []
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Machine Learning",
+      "date": "2018-01-01",
+      "issuer": "Stanford University",
+      "url": "https://example.com",
+      "icon": "fa-solid fa-location-dot"
+    },
+    {
+      "name": "Quantum Computing",
+      "date": "2018-01-01",
+      "issuer": "Stanford University",
+      "url": "https://example.com",
+      "icon": "fa-solid fa-tag"
+    },
+    {
+      "name": "Quantum Information",
+      "date": "2018-01-01",
+      "issuer": "Stanford University",
+      "url": "https://example.com",
+      "icon": "fa-solid fa-envelope"
+    },
+    {
+      "name": "Quantum Cryptography",
+      "date": "2018-01-01",
+      "issuer": "Stanford University",
+      "url": "https://example.com",
+      "icon": "fa-solid fa-hashtag"
+    },
+    {
+      "name": "Quantum Communication",
+      "date": "2018-01-01",
+      "issuer": "Stanford University",
+      "url": "https://example.com",
+      "icon": "fa-solid fa-calendar"
+    },
+    {
+      "name": "Quantum Teleportation",
+      "date": "2018-01-01",
+      "issuer": "Stanford University",
+      "url": "https://example.com",
+      "icon": "fa-solid fa-clipboard-check"
     }
   ]
 }

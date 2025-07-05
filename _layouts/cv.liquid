@@ -115,6 +115,12 @@ layout: default
                   {% include resume/certificates.liquid %}
                 {% when 'references' %}
                   {% include resume/references.liquid %}
+                {% when 'leadership' %}
+                  {% include resume/leadership.liquid %}
+                {% when 'peer review' %}
+                  {% include resume/peer_review.liquid %}
+                {% when 'professional service' %}
+                  {% include resume/professional_service.liquid %}
                 {% else %}
 
               {% endcase %}
