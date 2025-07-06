@@ -535,6 +535,130 @@
       "icon": "fa-solid fa-clipboard-check"
     }
   ],
+  "academic consulting": [
+    {
+      "position": "Consultant",
+      "organization": "Platform for Innovative Learning Assessments (PILA)",
+      "url": "https://pilaproject.org/",
+      "location": "Switzerland",
+      "startDate": "2021",
+      "endDate": "2023",
+      "summary": "OECD",
+      "highlights": [
+        "Designed and implemented an experimental, interactive computer science assessment for the PILA platform.",
+        "Piloted the assessment with over 500 students from Singapore, Ireland, the Netherlands, and Brazil."
+      ]
+    },
+    {
+      "position": "Expert Evaluator",
+      "organization": "Mindsteps and Check-dein-Wissen",
+      "url": "",
+      "location": "Switzerland",
+      "startDate": "",
+      "endDate": "2022",
+      "summary": "Bildungsraum Nordwestschweiz",
+      "highlights": [
+        "Evaluated the usability, user experience, and pedagogical effectiveness of the summative assessment platform Check-dein-Wissen and the formative assessment platform Mindsteps.",
+        "Prepared a 10k word report summarizing the findings that was presented to government officials in the Bildungsraum Nordwestschweiz."
+      ]
+    },
+    {
+      "position": "Consultant",
+      "organization": "FabLearn",
+      "url": "",
+      "location": "New York, USA",
+      "startDate": "2019",
+      "endDate": "2020",
+      "summary": "Columbia University",
+      "highlights": [
+        "Developed and piloted a chat-based inquiry learning tool for students to use during the Covid-19 pandemic.",
+        "Based on the pilot, the tool received a 100k internal grant from Columbia University."
+      ]
+    }
+  ],
+  "university teaching experience": [
+    {
+      "position": "Instructor",
+      "organization": "École Polytechnique Fédérale de Lausanne (EPFL) & Swiss Federal Institute of Technology in Zürich (ETH Zurich)",
+      "url": "",
+      "location": "Switzerland",
+      "startDate": "2022",
+      "endDate": "2025",
+      "summary": "Theoretical Foundations of the Learning Sciences (LEARN-600)",
+      "highlights": [
+        "Co-instructed with Prof. Pierre Dillenbourg and Prof. Manu Kapur.",
+        "Co-designed curriculum, readings, assignments, and projects."
+      ]
+    },
+    {
+      "position": "Head Teaching Assistant",
+      "organization": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "url": "",
+      "location": "Lausanne, Switzerland",
+      "startDate": "2020",
+      "endDate": "2024",
+      "summary": "Digital Education and Learning Analytics (CS-411)",
+      "highlights": [
+        "Assisted Prof. Pierre Dillenbourg.",
+        "Guest lecturer on topic of Making in Education.",
+        "Responsible for mentoring student projects and grading reports and exams."
+      ]
+    },
+    {
+      "position": "Instructor",
+      "organization": "Stanford University",
+      "url": "",
+      "location": "Stanford, CA, USA",
+      "startDate": "",
+      "endDate": "2018",
+      "summary": "Beyond Bits and Atoms — Lecture (CS 402, EDUC 236)",
+      "highlights": [
+        "Head lecturer.",
+        "Restructured syllabus and created all new lecture materials.",
+        "Post-course evaluation: amount learned 5 out of 5, quality of instruction 4.9 out of 5.",
+        "20 out of 24 students had their final papers accepted to the Interaction Design and Children conference."
+      ]
+    },
+    {
+      "position": "Instructor",
+      "organization": "Stanford University",
+      "url": "",
+      "location": "Stanford, CA, USA",
+      "startDate": "",
+      "endDate": "2017",
+      "summary": "Beyond Bits and Atoms — Lab (CS 402L, EDUC 211)",
+      "highlights": [
+        "Head lecturer.",
+        "Hired and managed a team of four TAs.",
+        "Primary designer of course materials.",
+        "Post-course evaluation: learning quality 4.73 out of 5, instructional effectiveness 4.8 out of 5."
+      ]
+    },
+    {
+      "position": "Teaching Assistant",
+      "organization": "Stanford University",
+      "url": "",
+      "location": "Stanford, CA, USA",
+      "startDate": "2014",
+      "endDate": "2016",
+      "summary": "Beyond Bits and Atoms — Lecture & Lab (CS 402, CS 402L, EDUC 211, EDUC 236)",
+      "highlights": [
+        "Assisted Prof. Paulo Blikstein and Bertrand Scheider over two course offerings.",
+        "Responsible for planning lecture activities and grading student essays.",
+        "Responsible for planning lab activities, leading sections on Arduino and Processing, and grading student projects."
+      ]
+    },
+    {
+      "position": "Teaching Assistant",
+      "organization": "The University of Pennsylvania",
+      "url": "",
+      "location": "Philadelphia, PA, USA",
+      "startDate": "",
+      "endDate": "2013",
+      "summary": "Cultures of Making (FNAR 268/568)",
+      "highlights": ["Assisted Prof. Orkan Telhan.", "Course covered digital fabrication, printed electronics, and biosynthesis."]
+    }
+  ],
   "publications": [
     {
       "name": "Zur Elektrody/namik bewegter Körper",

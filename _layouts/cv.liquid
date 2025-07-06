@@ -124,6 +124,10 @@ layout: default
                   {% include resume/professional_service.liquid %}
                 {% when 'research supervised' %}
                   {% include resume/research_supervised.liquid %}
+                {% when 'academic consulting' %}
+                  {% include resume/consulting.liquid %}
+                {% when 'university teaching experience' %}
+                  {% include resume/university_teaching_experience.liquid %}
                 {% else %}
 
               {% endcase %}
