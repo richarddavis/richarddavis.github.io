@@ -908,6 +908,58 @@
       ]
     }
   ],
+  "professional development": [
+    {
+      "position": "Lecturer and Workshop Leader",
+      "summary": "F&E National Research Days",
+      "organization": "Swiss Federal University for Vocational Education and Training (SFUVET)",
+      "location": "Switzerland",
+      "startDate": "",
+      "endDate": "2021",
+      "highlights": ["Developed and led a workshop on principles of experimental design and Bayesian data analysis for researchers at SFUVET."]
+    },
+    {
+      "position": "Lecturer and Workshop Leader",
+      "summary": "FabLearn Training: Strategic Planning, Design and Implementation of Educational Makerspace Programs",
+      "organization": "Stanford University",
+      "location": "Stanford, CA, USA",
+      "startDate": "2016",
+      "endDate": "2020",
+      "highlights": [
+        "Developed and led a two-day professional development workshop on learning biology through the construction of robotic models in a digital fabrication lab.",
+        "Invited to lead the workshop five times since 2016."
+      ]
+    },
+    {
+      "position": "Lecturer and Workshop Leader",
+      "summary": "FabLearn Training: Digital Fabrication Workshop",
+      "organization": "Ban Samkha Constructionist Village",
+      "location": "Thailand",
+      "startDate": "",
+      "endDate": "2016",
+      "highlights": ["Led a week-long, 40-hour workshop for 38 Thai education and industry leaders on digital fabrication and learning."]
+    },
+    {
+      "position": "Lecturer and Workshop Leader",
+      "summary": "FabLearn Training: Digital Fabrication Workshop",
+      "organization": "Darunsikkhalai School for Innovative Learning (DSIL)",
+      "location": "Thailand",
+      "startDate": "2013",
+      "endDate": "2015",
+      "highlights": ["Led week-long, 40-hour workshops for the entire DSIL teaching staff on digital fabrication and learning."]
+    },
+    {
+      "position": "Instructor",
+      "summary": "Electronic Textiles",
+      "organization": "The Franklin Institute",
+      "location": "Philadelphia, PA, USA",
+      "startDate": "",
+      "endDate": "2012",
+      "highlights": [
+        "Led a workshop for library staff on e-textiles; participants subsequently led their own workshops across Philadelphia as part of the eCrafting Circles grant."
+      ]
+    }
+  ],
   "publications": [
     {
       "name": "Zur Elektrody/namik bewegter Körper",
