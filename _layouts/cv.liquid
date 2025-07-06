@@ -128,6 +128,12 @@ layout: default
                   {% include resume/consulting.liquid %}
                 {% when 'university teaching experience' %}
                   {% include resume/university_teaching_experience.liquid %}
+                {% when 'funding' %}
+                  {% include resume/funding.liquid %}
+                {% when 'industry experience' %}
+                  {% include resume/industry_experience.liquid %}
+                {% when 'research experience' %}
+                  {% include resume/research_experience.liquid %}
                 {% else %}
 
               {% endcase %}

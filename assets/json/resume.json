@@ -659,6 +659,255 @@
       "highlights": ["Assisted Prof. Orkan Telhan.", "Course covered digital fabrication, printed electronics, and biosynthesis."]
     }
   ],
+  "funding": [
+    {
+      "position": "Deep Generative Models to Enhance Creativity in Vocational Training",
+      "organization": "with Thiemo Wambsganss and Tanja Kaeser",
+      "url": "",
+      "location": "Switzerland",
+      "startDate": "2024",
+      "endDate": "2025",
+      "summary": "127,000 CHF",
+      "highlights": [
+        "Funded by BeLEARN to develop and study a generative AI creativity support tool for apprentices in the Swiss vocational education system",
+        "Funding covered salaries for a developer, a research assistant, infrastructure costs, and travel"
+      ]
+    },
+    {
+      "position": "JDPLS Seasonal Schools",
+      "organization": "with Pierre Dillenbourg and Manu Kapur",
+      "url": "",
+      "location": "Switzerland",
+      "startDate": "2022",
+      "endDate": "2024",
+      "summary": "30,000 CHF",
+      "highlights": [
+        "Funded by EDOC at EPFL to organize Summer, Spring, and Winter schools for the ETH/EPFL Joint Doctoral Program in the Learning Sciences.",
+        "Funding covered all expenses for PhD students, thesis advisors, and keynote speakers."
+      ]
+    },
+    {
+      "position": "Vocational Training in Virtual Reality",
+      "organization": "assisted Pierre Dillenbourg",
+      "url": "",
+      "location": "Switzerland",
+      "startDate": "",
+      "endDate": "2021",
+      "summary": "50,000 CHF",
+      "highlights": [
+        "Applied for and received an extension to use remaining funds from an expiring SNSF grant (approximately 50k CHF).",
+        "Funding was used to pay for development of virtual reality applications used for vocational training of carpenters and logistics apprentices."
+      ]
+    },
+    {
+      "position": "Chat-Based Inquiry Learning for Students in Quarantine",
+      "organization": "assisted Paulo Blikstein and Tamar Furhrmann",
+      "url": "",
+      "location": "New York, USA",
+      "startDate": "",
+      "endDate": "2020",
+      "summary": "$100,000",
+      "highlights": [
+        "Developed and piloted a chat-based inquiry learning tool for students to use during the Covid-19 pandemic.",
+        "Based on the pilot, the tool received a 100k internal grant from Columbia University."
+      ]
+    },
+    {
+      "position": "Stanford Interdisciplinary Graduate Fellowship (SIGF)",
+      "organization": "Sole recipient",
+      "url": "",
+      "location": "Stanford, CA, USA",
+      "startDate": "2016",
+      "endDate": "2019",
+      "summary": "$300,000",
+      "highlights": [
+        "Applied for and received the Stanford Interdisciplinary Graduate Fellowship (SIGF), a highly competitive university-wide program that awards three-year fellowships to 30 outstanding doctoral students engaged in interdisciplinary research each year.",
+        "Fellowship worth approximately $300k covered all academic and administrative costs and paid a full stipend for three years."
+      ]
+    },
+    {
+      "position": "Amir Lopatin Fellowship",
+      "organization": "Sole recipient",
+      "url": "",
+      "location": "Stanford, CA, USA",
+      "startDate": "",
+      "endDate": "2015",
+      "summary": "$1,200",
+      "highlights": [
+        "Applied for and received the Amir Lopatin Fellowship ($1.2k).",
+        "Fellowship awarded to two students in the Stanford Learning Sciences and Technology Design program each year."
+      ]
+    },
+    {
+      "position": "Connected Messages",
+      "organization": "with Orkan Telhan and Yasmin Kafai",
+      "url": "",
+      "location": "Philadelphia, PA, USA",
+      "startDate": "",
+      "endDate": "2013",
+      "summary": "$10,000",
+      "highlights": [
+        "Assisted in application to DML5 Project:Connect Project Summer Youth Programming Competition ($10k).",
+        "Co-designed and developed Connected Messages, a digital and physical mural project constructed over four weeks by youth in five Free Library locations."
+      ]
+    }
+  ],
+  "industry experience": [
+    {
+      "position": "Software and Firmware Engineer",
+      "organization": "Current Designs",
+      "url": "http://www.curdes.com",
+      "location": "Philadelphia, PA, USA",
+      "startDate": "2007",
+      "endDate": "2013",
+      "highlights": [
+        "Developed and maintained firmware for five devices, including the company's flagship device, the 932. All firmware was written in pure assembly to save memory and maximize execution speed. The firmware utilized all the capabilities of the PIC18F4550, which interfaces with a variety of ICs and communicated over USB, serial, parallel, and optical connections. The 932 enumerated as a composite USB device, appearing as a HID keyboard, mouse, and joystick simultaneously.",
+        "Developed and maintained multiple pieces of Python software using PyQt, PyUSB, PyInstaller, pygame, etc.",
+        "Contributed to PyInstaller."
+      ]
+    },
+    {
+      "position": "Co-Founder and Co-Director",
+      "organization": "The Philadelphia Institute for Advanced Study (PIFAS)",
+      "url": "http://www.pifas.net",
+      "location": "Philadelphia, PA, USA",
+      "startDate": "2007",
+      "endDate": "2010",
+      "highlights": [
+        "Co-founded and co-directed PIFAS, an open, free educational and cultural center that grew to over 80 members and was featured in the New York Times, Art in America, Time Out New York, The Artblog, and the Philadelphia City Paper.",
+        "Taught engineering, German, and philosophy courses; oversaw daily operations; administered the international artist residency; helped design and maintain the Ruby on Rails website; and hosted lecturers from institutions including the Princeton Institute for Advanced Study, the University of Pennsylvania, UC Berkeley, Haverford, the NSA, and the ACLU."
+      ]
+    },
+    {
+      "position": "Flash Developer and Project Manager",
+      "organization": "Apex Learning",
+      "url": "",
+      "location": "Seattle, WA, USA",
+      "startDate": "2005",
+      "endDate": "2007",
+      "highlights": [
+        "Led a geographically dispersed team of three Flash developers and an illustrator; responsible for all interactive and visual content in an online chemistry course."
+      ]
+    }
+  ],
+  "research experience": [
+    {
+      "position": "Postdoctoral Scholar",
+      "organization": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "url": "https://www.epfl.ch/labs/chili/",
+      "location": "Lausanne, Switzerland",
+      "startDate": "2020",
+      "endDate": "2024",
+      "projects": [
+        {
+          "name": "Leading House Dual-T – Technologies for Vocational Training",
+          "investigators": "Pierre Dillenbourg, Alberto Cattaneo, Jean-Luc Gurtner",
+          "highlights": [
+            "Mentored two PhD students through the successful completion of their degrees.",
+            "Co-authored and co-edited the book 'Educational Technologies for Vocational Training: Experiences as Digital Clay' summarising 15-years of Dual-T work.",
+            "Co-developed and evaluated AI-supported technologies for gardeners, fashion designers, and administrators in Swiss VET.",
+            "Managed five bachelor students developing VR applications for vocational education."
+          ]
+        },
+        {
+          "name": "Uni Analytics – Investigating how different stakeholders use learning analytics in higher education",
+          "investigators": "Pierre Dillenbourg, Patrick Jermann, Francisco Pinto, Roland Tormey",
+          "highlights": [
+            "Mentored one PhD student and several master/bachelor students.",
+            "Collaborated on qualitative investigations into the factors that influence the use of learning analytics among the different stakeholders in higher education.",
+            "Hired and managed a full-time full-stack developer.",
+            "Collaborated on the construction of learning analytics dashboards for administrators, students, and instructors."
+          ]
+        }
+      ]
+    },
+    {
+      "position": "Research Assistant",
+      "organization": "Stanford University",
+      "url": "",
+      "location": "Stanford, CA, USA",
+      "startDate": "2019",
+      "endDate": "2020",
+      "projects": [
+        {
+          "name": "Towards a better integration of deep learning and educational measurement",
+          "investigators": "Chris Piech, Ben Domingue",
+          "highlights": [
+            "Developed a deep probabilistic model of student learning in Pyro/PyTorch.",
+            "Trained and validated models on datasets including Gradescope data (>200k students)."
+          ]
+        }
+      ]
+    },
+    {
+      "position": "Research Assistant",
+      "organization": "Stanford University",
+      "url": "",
+      "location": "Stanford, CA, USA",
+      "startDate": "2013",
+      "endDate": "2016",
+      "projects": [
+        {
+          "name": "Infusing Learning Sciences Research into Digital Fabrication and Making in Education",
+          "investigators": "Paulo Blikstein",
+          "highlights": [
+            "Led a year-long workshop on digital fabrication; taught laser cutting, 3D-printing, micro-controller programming.",
+            "Collected and analysed qualitative & quantitative data; funded by NSF #1349163."
+          ]
+        }
+      ]
+    },
+    {
+      "position": "Research Assistant",
+      "organization": "Stanford University",
+      "url": "",
+      "location": "Stanford, CA, USA",
+      "startDate": "2014",
+      "endDate": "2016",
+      "projects": [
+        {
+          "name": "Hands-on Haptics Laboratories for Classroom and Online Learning",
+          "investigators": "Allison Okamura, Karon MacLean, Paulo Blikstein",
+          "highlights": [
+            "Designed software in Java, Processing, Arduino; developed instructional materials using the Hapkit.",
+            "Analysed survey/forum data; funded by NSF #1441358."
+          ]
+        }
+      ]
+    },
+    {
+      "position": "Research Assistant",
+      "organization": "The University of Pennsylvania",
+      "url": "",
+      "location": "Philadelphia, PA, USA",
+      "startDate": "2012",
+      "endDate": "2013",
+      "projects": [
+        {
+          "name": "Transforming STEM Competitions into Collaboratives – Developing eCrafting Collabs for Learning with Electronic Textiles",
+          "investigators": "Yasmin Kafai, Orkan Telhan, Karen Elinich",
+          "highlights": ["Designed, developed, and studied eCrafting Collabs; taught e-textiles to multiple learner groups; funded by NSF #1238172."]
+        }
+      ]
+    },
+    {
+      "position": "Research Assistant",
+      "organization": "The University of Pennsylvania",
+      "url": "",
+      "location": "Philadelphia, PA, USA",
+      "startDate": "2012",
+      "endDate": "2013",
+      "projects": [
+        {
+          "name": "Preparing the Next Generation of Computational Thinkers – Cooperation in Decentralised Networks",
+          "investigators": "Yasmin Kafai",
+          "highlights": [
+            "Designed collaborative Scratch 2.0 projects and physical interface classes using Scratch & MaKey MaKey; funded by NSF #1027736."
+          ]
+        }
+      ]
+    }
+  ],
   "publications": [
     {
       "name": "Zur Elektrody/namik bewegter Körper",
