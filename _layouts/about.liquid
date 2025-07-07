@@ -56,14 +56,14 @@ layout: default
         {% endif %}
       </div>
 
-      <!-- Right column: News -->
+      <!-- Right column: Latest Posts -->
       <div class="col-lg-4 col-md-5">
-        {% if page.announcements and page.announcements.enabled %}
+        {% if page.latest_posts and page.latest_posts.enabled %}
           <div class="section-container">
             <h3 class="category">
-              <a href="{{ '/news/' | relative_url }}" style="color: inherit">Recent News</a>
+              <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Recent News</a>
             </h3>
-            {% include news.liquid limit=true %}
+            {% include latest_posts.liquid %}
           </div>
         {% endif %}
       </div>
@@ -92,20 +92,6 @@ layout: default
               <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Recent Publications</a>
             </h2>
             {% include selected_papers.liquid %}
-          </div>
-        </div>
-      </div>
-    {% endif %}
-
-    <!-- Latest posts (if enabled) remain below publications -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <div class="row">
-        <div class="col-12">
-          <div class="section-container">
-            <h2>
-              <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest Posts</a>
-            </h2>
-            {% include latest_posts.liquid %}
           </div>
         </div>
       </div>
