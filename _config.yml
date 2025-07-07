@@ -648,6 +648,6 @@ jsonresume:
   - academic consulting
   - university teaching experience
   - funding
-  - research experience
-  - professional development
+  # - research experience
+  # - professional development
   # - industry experience

@@ -22,28 +22,6 @@
       }
     ]
   },
-  "work": [
-    {
-      "name": "KTH Royal Institute of Technology",
-      "position": "Assistant Professor (Biträdande Lektor)",
-      "location": "Stockholm, Sweden",
-      "url": "https://www.kth.se/profile/rldavis",
-      "startDate": "2024-08-15",
-      "endDate": "",
-      "summary": "Division of Digital Learning",
-      "highlights": []
-    },
-    {
-      "name": "École Polytechnique Fédérale de Lausanne (EPFL)",
-      "position": "Postdoctoral Scholar in Computer Science",
-      "location": "Lausanne, Switzerland",
-      "url": "https://www.epfl.ch/labs/chili/",
-      "startDate": "2020-08-01",
-      "endDate": "2024-08-14",
-      "summary": "Training under Pierre Dillenbourg in the Computer-Human Interaction in Learning and Instruction (CHILI) Lab.",
-      "highlights": []
-    }
-  ],
   "education": [
     {
       "institution": "Stanford University",
@@ -71,6 +49,28 @@
       "studyType": "BA Philosophy, BA Studio Art, Minor Physics",
       "startDate": "1999-09-01",
       "endDate": "2003-06-15"
+    }
+  ],
+  "work": [
+    {
+      "name": "KTH Royal Institute of Technology",
+      "position": "Assistant Professor (Biträdande Lektor)",
+      "location": "Stockholm, Sweden",
+      "url": "https://www.kth.se/profile/rldavis",
+      "startDate": "2024-08-15",
+      "endDate": "",
+      "summary": "Division of Digital Learning",
+      "highlights": []
+    },
+    {
+      "name": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "position": "Postdoctoral Scholar in Computer Science",
+      "location": "Lausanne, Switzerland",
+      "url": "https://www.epfl.ch/labs/chili/",
+      "startDate": "2020-08-01",
+      "endDate": "2024-08-14",
+      "summary": "Training under Pierre Dillenbourg in the Computer-Human Interaction in Learning and Instruction (CHILI) Lab.",
+      "highlights": []
     }
   ],
   "leadership": [
