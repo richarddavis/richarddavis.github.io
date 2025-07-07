@@ -632,12 +632,22 @@ jsonresume:
   - basics
   - work
   - education
+  - leadership
   - publications
-  - projects
-  - volunteer
+  # - projects
+  # - volunteer
   - awards
-  - certificates
-  - skills
-  - languages
-  - interests
-  - references
+  # - certificates
+  # - skills
+  # - languages
+  # - interests
+  # - references
+  - professional service
+  - peer review
+  - research supervised
+  - academic consulting
+  - university teaching experience
+  - funding
+  # - research experience
+  # - professional development
+  # - industry experience

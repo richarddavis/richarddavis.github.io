@@ -1,14 +1,17 @@
 <ul class="card-text font-weight-light list-group list-group-flush">
-  {% assign volunteer = data[1] | sort: 'startDate' | reverse %}
-  {% for content in volunteer %}
+  {% assign service = data[1] | sort: 'startDate' | reverse %}
+  {% for content in service %}
     <li class="list-group-item">
       <div class="row">
         <div class="col-xs-2 cl-sm-2 col-md-2 date-column">
           {% if content.startDate %}
-            {% assign startDate = content.startDate | split: '-' | slice: 0, 2 | join: '.' %}
-            {% assign endDate = content.endDate | split: '-' | slice: 0, 2 | join: '.' | default: 'Present' %}
-            {% assign date = startDate | append: ' - ' %}
-            {% assign date = date | append: endDate %}
+            {% assign startYear = content.startDate | slice: 0, 4 %}
+            {% assign endYear = content.endDate | slice: 0, 4 %}
+            {% if endYear == '' or endYear == startYear %}
+              {% assign date = startYear %}
+            {% else %}
+              {% assign date = startYear | append: ' - ' | append: endYear %}
+            {% endif %}
           {% else %}
             {% assign date = '' %}
           {% endif %}
@@ -34,17 +37,9 @@
         </div>
         <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
           <h6 class="title font-weight-bold ml-1 ml-md-4">
-            <a href="{{ content.url }}">{{ content.position }}</a>
+            {{ content.position }}
           </h6>
           <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem">{{ content.organization }}</h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic">{{ content.summary }}</h6>
-          <ul class="items">
-            {% for item in content.highlights %}
-              <li>
-                <span class="item">{{ item }}</span>
-              </li>
-            {% endfor %}
-          </ul>
         </div>
       </div>
     </li>

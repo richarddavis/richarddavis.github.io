@@ -106,7 +106,8 @@ layout: default
                 {% when 'skills' %}
                   {% include resume/skills.liquid %}
                 {% when 'publications' %}
-                  {% include resume/publications.liquid %}
+                  {% comment %} Change back to publications.liquid to display list of publications {% endcomment %}
+                  {% include resume/link-to-publications.liquid %}
                 {% when 'languages' %}
                   {% include resume/languages.liquid %}
                 {% when 'interests' %}
@@ -115,6 +116,26 @@ layout: default
                   {% include resume/certificates.liquid %}
                 {% when 'references' %}
                   {% include resume/references.liquid %}
+                {% when 'leadership' %}
+                  {% include resume/leadership.liquid %}
+                {% when 'peer review' %}
+                  {% include resume/peer_review.liquid %}
+                {% when 'professional service' %}
+                  {% include resume/professional_service.liquid %}
+                {% when 'research supervised' %}
+                  {% include resume/research_supervised.liquid %}
+                {% when 'academic consulting' %}
+                  {% include resume/consulting.liquid %}
+                {% when 'university teaching experience' %}
+                  {% include resume/university_teaching_experience.liquid %}
+                {% when 'funding' %}
+                  {% include resume/funding.liquid %}
+                {% when 'industry experience' %}
+                  {% include resume/industry_experience.liquid %}
+                {% when 'research experience' %}
+                  {% include resume/research_experience.liquid %}
+                {% when 'professional development' %}
+                  {% include resume/professional_development.liquid %}
                 {% else %}
 
               {% endcase %}
