@@ -30,15 +30,81 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-new-paper-in-etrd-hands-on-tasks-make-learning-visible",
+        },{id: "post-presenting-on-multimodal-ai-to-delegation-from-the-flemish-region-in-belgium",
         
-          title: "New Paper in ETRD: Hands-on tasks make learning visible",
+          title: "Presenting on Multimodal AI to Delegation from the Flemish Region in Belgium",
         
-        description: "New paper out in Educational Technology Research and Development! Hands-on tasks make learning visible: a learning analytics lens on the development of mechanistic problem-solving expertise in makerspaces",
+        description: "Our Digital Futures project was chosen as one of four Digital Futures initiatives to present to Belgian politicians and industry leaders.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2023/hands-on-tasks-make-learning-visible/";
+            window.location.href = "/blog/2025/flemish-delegation/";
+          
+        },
+      },{id: "post-nominated-for-best-full-paper-and-best-student-paper-at-cscl-2025",
+        
+          title: "Nominated for Best Full Paper and Best Student Paper at CSCL 2025",
+        
+        description: "Our paper &quot;Jupyter-Notebook-as-Script: Investigating the Nature and Impact of Implicit Collaboration Scripts in Computational Notebooks&quot; was nominated for Best Full Paper and Best Student Paper at CSCL 2025.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/jupyter-notebook-as-script/";
+          
+        },
+      },{id: "post-new-paper-in-bjet-empowering-reflective-writing-with-large-language-models",
+        
+          title: "New Paper in BJET: Empowering reflective writing with large language models",
+        
+        description: "New paper out in the British Journal of Educational Technology! &quot;Metacognition meets AI: Empowering reflective writing with large language models&quot;.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/metacognition-meets-ai/";
+          
+        },
+      },{id: "post-two-late-breaking-papers-in-chi-2025",
+        
+          title: "Two late-breaking papers in CHI 2025",
+        
+        description: "We will present two late-breaking works at CHI 2025 in Yokohama, Japan on generative AI for creativity support and AI-supported spatial learning.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/two-chi-papers/";
+          
+        },
+      },{id: "post-invited-talk-at-epfl-using-ai-to-scale-learning-by-making",
+        
+          title: "Invited Talk at EPFL: Using AI to Scale Learning By Making",
+        
+        description: "I&#39;ll be presenting my research on AI-powered constructionist learning tools at the EPFL IC Colloquium on March 27, 2025.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/epfl-talk/";
+          
+        },
+      },{id: "post-awarded-2-million-sek-from-digital-futures-for-multimodal-genai-in-engineering-education",
+        
+          title: "Awarded 2 Million SEK from Digital Futures for Multimodal GenAI in Engineering Education...",
+        
+        description: "Together with Olga Viberg, we received a Digital Futures Research Pair grant to develop pedagogically-aligned AI tools for hands-on engineering learning.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/digital-futures-grant/";
+          
+        },
+      },{id: "post-new-paper-in-etrd-hands-on-tasks-make-learning-visible",
+        
+          title: "New Paper in ETRD: Hands-on tasks make learning visible",
+        
+        description: "New paper out in Educational Technology Research and Development! &quot;Hands-on tasks make learning visible: a learning analytics lens on the development of mechanistic problem-solving expertise in makerspaces&quot;.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2024/hands-on-tasks-make-learning-visible/";
           
         },
       },{id: "books-the-godfather",
