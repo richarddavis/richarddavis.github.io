@@ -84,8 +84,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: # blog_name will be displayed in your blog page
-blog_description: News, Posts, and Announcements
+blog_name: News, Posts, and Announcements # blog_name will be displayed in your blog page
+blog_description:
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -647,7 +647,7 @@ jsonresume:
   - research supervised
   - academic consulting
   - university teaching experience
-  - funding
+  # - funding
   # - research experience
   # - professional development
   # - industry experience

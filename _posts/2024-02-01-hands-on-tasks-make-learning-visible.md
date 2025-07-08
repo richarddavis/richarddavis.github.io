@@ -1,10 +1,12 @@
 ---
 layout: post
 title: "New Paper in ETRD: Hands-on tasks make learning visible"
-description: "New paper out in Educational Technology Research and Development! Hands-on tasks make learning visible: a learning analytics lens on the development of mechanistic problem-solving expertise in makerspaces"
-date: 2023-11-28 00:00:00 +0000
+description: 'New paper out in Educational Technology Research and Development! "Hands-on tasks make learning visible: a learning analytics lens on the development of mechanistic problem-solving expertise in makerspaces".'
+date: 2024-02-01 00:00:00 +0000
 tags: news
 categories: publications
+related_posts: false
+# thumbnail: assets/img/publication_preview/gearbox-2024.png
 ---
 
 The paper investigates the impact of participating in a year-long digital-fabrication course on high-school seniors' problem-solving skills, with a focus on problems involving mechanistic systems. [Read it here!](https://link.springer.com/article/10.1007/s11423-023-10318-w)

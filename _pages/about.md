@@ -18,7 +18,7 @@ announcements:
 latest_posts:
   enabled: true # includes a list of the newest posts
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 5 # leave blank to include all the blog posts
+  limit: 8 # leave blank to include all the blog posts
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -28,6 +28,8 @@ about_content: |
 
   **Areas of expertise:** Design and evaluation of educational technologies · Human-Computer Interaction · AI/ML in education and learning analytics · STEM education · Experiential Education
 
-research_content: |
+  ## Research Summary
   Guided by the theory of constructionism — which emphasizes learning through creating personally meaningful artefacts — my research focuses on designing, implementing, and evaluating educational tools that expand the possibilities of "learning by making" to new topics and domains. I incorporate cutting-edge technologies such as artificial intelligence (AI), digital fabrication, haptic feedback, computational crafting, and virtual/augmented reality (XR) into these tools. My work has been recognized with the Stanford Interdisciplinary Graduate Fellowship, best-paper awards at major conferences, and several grants supporting innovative AI tools for creativity and problem-solving in education.
+
+# research_content: |
 ---

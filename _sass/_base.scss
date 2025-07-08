@@ -595,7 +595,7 @@ footer.sticky-bottom {
 
   h1 {
     color: var(--global-theme-color);
-    font-size: 5rem;
+    font-size: 3rem;
   }
 }
 
@@ -970,6 +970,43 @@ html.transition *:after {
         color: var(--global-theme-color);
       }
     }
+  }
+}
+
+// Blog post content heading hierarchy
+.post .post-content {
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    color: var(--global-text-color);
+    border-bottom: 1px solid var(--global-divider-color);
+    padding-bottom: 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    color: var(--global-text-color-light);
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 200;
+    margin-bottom: 0.75rem;
+    margin-top: 1.25rem;
+    color: var(--global-text-color-light);
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    font-weight: 200;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    color: var(--global-text-color-light);
   }
 }
 

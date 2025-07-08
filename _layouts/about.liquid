@@ -70,18 +70,20 @@ layout: default
     </div>
 
     <!-- Research Summary Section -->
-    {% if page.research_content %}
-      <div class="row">
-        <div class="col-12">
-          <div class="section-container">
-            <h2 class="category">Research Summary</h2>
-            <div class="clearfix">
-              {{ page.research_content | markdownify }}
+    {% comment %}
+      {% if page.research_content %}
+        <div class="row">
+          <div class="col-12">
+            <div class="section-container">
+              <h2 class="category">Research Summary</h2>
+              <div class="clearfix">
+                {{ page.research_content | markdownify }}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    {% endif %}
+      {% endif %}
+    {% endcomment %}
 
     <!-- Publications row spanning full width -->
     {% if page.selected_papers %}
