@@ -1,0 +1,382 @@
+{
+  "basics": {
+    "name": "Richard Lee Davis, PhD",
+    "label": "Education Technology Researcher & Data Analyst",
+    "image": "",
+    "email": "rldavis@kth.se",
+    "phone": "+46 70-568-4140",
+    "url": "https://richarddavis.github.io/",
+    "summary": "Education technology researcher and data analyst with 7+ years experience in quantitative research, learning analytics, and large-scale assessments. Proven track record in managing international research projects, developing innovative assessment tools, and analyzing complex educational data. Seeking to apply strong statistical, technical, and project management skills to the OECD PISA Analyst role to help drive evidence-based educational policy.",
+    "location": {
+      "address": "Brinellvägen 68",
+      "postalCode": "11428",
+      "city": "Stockholm",
+      "countryCode": "SE",
+      "region": "Stockholm"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "richarddavis",
+        "url": "https://github.com/richarddavis"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "rldphd",
+        "url": "https://www.linkedin.com/in/rldphd/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "KTH Royal Institute of Technology",
+      "position": "Assistant Professor (Biträdande Lektor), Division of Digital Learning",
+      "location": "Stockholm, Sweden",
+      "url": "https://www.kth.se/profile/rldavis",
+      "startDate": "2024-08-15",
+      "endDate": "",
+      "summary": "Leading research lab focused on AI in education and learning analytics",
+      "highlights": [
+        "Research Leadership: Leading a research lab focused on AI in education and learning analytics. Supervise PhD students and research engineers in developing data-driven educational tools. Secured a 2M SEK Digital Futures grant as co-PI to develop AI-driven multimodal learning support tools.",
+        "Project Management: Manage project scope, timelines, and a budget of ~€200k; coordinate with partner institutions and stakeholders. Implemented agile project management practices (bi-weekly sprints, milestone reviews) to ensure on-time delivery of research prototypes and reports.",
+        "Technical Innovation: Overseeing development of a novel learning analytics platform to capture student coding process data. Introduced data pipelines and analytics dashboards for educators to visualize student progress, aligning with PISA's interest in process data.",
+        "Communication: Write grant reports and research papers (e.g., ACM SIGCSE 2025) to disseminate findings. Mentor junior faculty on publishing and grant writing. Lecturing in graduate courses on Data Science in Education."
+      ]
+    },
+    {
+      "name": "OECD - Platform for Innovative Learning Assessments (PILA)",
+      "position": "Consultant (Assessment Design & International Coordination)",
+      "location": "Remote/Paris",
+      "url": "https://www.oecd.org",
+      "startDate": "2021-01-01",
+      "endDate": "2023-12-31",
+      "summary": "Lead designer of experimental computer science assessment for OECD's PILA initiative",
+      "highlights": [
+        "Assessment Design: One of two lead designers of an experimental computer science assessment ('Karel') for OECD's PILA initiative (innovating on PISA-style assessments). Designed an interactive programming task environment to measure problem-solving skills in students.",
+        "International Pilot Coordination: Managed pilot implementation in 4 countries (Singapore, Ireland, Netherlands, Brazil) with 500+ 15-year-old student participants. Liaised with national coordinators to administer the assessment and ensure data quality and adherence to OECD standards.",
+        "Data Analysis & Reporting: Analyzed response process data and performance outcomes using R. Identified cross-national trends in problem-solving strategies. Co-authored a research paper presenting the results and methodological insights. Delivered a detailed report and presentation to the PILA project leadership, informing future PISA innovative domain assessments.",
+        "Technologies: R (tidyverse), Python; Developed custom web-based assessment tasks (JavaScript/HTML5); GitHub for version control."
+      ]
+    },
+    {
+      "name": "École Polytechnique Fédérale de Lausanne (EPFL)",
+      "position": "Postdoctoral Researcher, Computer-Human Interaction in Learning & Instruction (CHILI) Lab",
+      "location": "Lausanne, Switzerland",
+      "url": "https://www.epfl.ch/labs/chili/",
+      "startDate": "2020-08-01",
+      "endDate": "2024-08-14",
+      "summary": "Research on learning analytics and student assessment under Prof. Pierre Dillenbourg",
+      "highlights": [
+        "Educational Data Mining: Conducted research on learning analytics and student assessment. Developed novel methods to analyze student learning processes (e.g., sequence mining of online learning interactions).",
+        "Psychometric Research: Pioneered a Variational Item Response Theory (vIRT) model integrating machine learning with classical IRT to improve the accuracy of ability estimation. Received Best Paper Award (EDM 2020) for this work on efficient psychometric modeling.",
+        "Tools Development: Co-developed 'Jupyter Analytics,' a learning analytics toolkit for Jupyter Notebooks, enabling real-time collection of student activity data and instructor dashboards. This project, involving collaboration with software developers, resulted in an open-source tool and multiple publications (e.g., ACM SIGCSE 2025).",
+        "Leadership & Mentorship: As Co-Executive Director of the EPFL-ETH Joint Doctoral Program in Learning Sciences (2022–2024), organized annual research workshops and training sessions for 20+ PhD students. Mentored doctoral students in research design and analytics methods.",
+        "Collaboration: Worked closely with an international, interdisciplinary team (computer scientists, psychologists, educators) and coordinated a European Commission-funded sub-project on AI in education. Contributed to proposals that secured additional funding for the lab.",
+        "Technologies: Python (pandas, scikit-learn, PyTorch); R; JupyterLab extensions; SQL; Git; Linux."
+      ]
+    },
+    {
+      "name": "Columbia University - FabLearn",
+      "position": "Consultant (Education Technology)",
+      "location": "New York, USA",
+      "url": "https://www.fablearn.org",
+      "startDate": "2019-01-01",
+      "endDate": "2020-12-31",
+      "summary": "Developed innovative educational technology solutions during COVID-19 pandemic",
+      "highlights": [
+        "Designed and piloted a chatbot-based inquiry learning tool for remote STEM education during the COVID-19 pandemic. Implemented the chatbot and content logic to guide students through inquiry-based science experiments via messaging.",
+        "Conducted usability testing with high school students; gathered feedback and iterated on the tool's design. The successful pilot led to an internal Columbia grant (~$100k) to expand the project.",
+        "Delivered documentation and a user guide for educators. This consulting project demonstrated adaptability and innovation in developing educational solutions under time-sensitive conditions."
+      ]
+    },
+    {
+      "name": "Bildungsraum Nordwestschweiz (Education Department, Northwestern Switzerland)",
+      "position": "Expert Evaluator (Assessment Platforms)",
+      "location": "Northwestern Switzerland",
+      "url": "",
+      "startDate": "2022-01-01",
+      "endDate": "2022-12-31",
+      "summary": "Evaluation of digital assessment platforms for regional schools",
+      "highlights": [
+        "Commissioned to evaluate two digital assessment platforms (one summative, one formative) for regional schools. Assessed each platform's usability, user experience, and pedagogical effectiveness by reviewing system data and interviewing teachers.",
+        "Authored a comprehensive 10,000-word evaluation report with findings and recommendations. Presented results to education officials, highlighting areas for improvement and the platforms' alignment with learning goals.",
+        "This experience honed my ability to communicate technical and pedagogical insights to decision-makers, a skill directly relevant to producing clear, actionable reports for PISA stakeholders."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Stanford University",
+      "location": "Stanford, CA, USA",
+      "url": "",
+      "area": "Dissertation: Opening the Black Box: Investigating the Impact of Engineering Design on Mechanistic Problem Solving",
+      "studyType": "PhD in Learning Sciences and Technology Design",
+      "startDate": "2013-09-23",
+      "endDate": "2020-09-24",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "Stanford University",
+      "location": "Stanford, CA, USA",
+      "url": "",
+      "area": "Dual-depth specialization in Artificial Intelligence and Human-Computer Interaction",
+      "studyType": "MS in Computer Science (AI & HCI)",
+      "startDate": "2015-09-21",
+      "endDate": "2017-06-18",
+      "score": "",
+      "courses": []
+    },
+    {
+      "institution": "University of Virginia",
+      "location": "Charlottesville, VA, USA",
+      "url": "",
+      "area": "Echols Scholar (four-year undergraduate merit scholarship)",
+      "studyType": "BA Philosophy, BA Studio Art, Minor Physics",
+      "startDate": "1999-09-01",
+      "endDate": "2003-06-15",
+      "score": "",
+      "courses": []
+    }
+  ],
+  "awards": [
+    {
+      "title": "Best Paper Nomination & Outstanding Paper Award",
+      "date": "2025",
+      "awarder": "Computer-Supported Collaborative Learning (CSCL 2025), Helsinki, Finland",
+      "url": "",
+      "summary": "For research on collaborative learning in computational notebooks"
+    },
+    {
+      "title": "Global Learning Council 'AI in Learning' Research Fellow",
+      "date": "2023",
+      "awarder": "Global Learning Council",
+      "url": "",
+      "summary": "Recognized for contributions bridging AI and education"
+    },
+    {
+      "title": "Best Paper Award",
+      "date": "2020",
+      "awarder": "EDM 2020",
+      "url": "",
+      "summary": "Variational Item Response Theory: Fast, Accurate, and Expressive (Innovative psychometrics/ML approach for assessments)"
+    },
+    {
+      "title": "Best Paper Nomination",
+      "date": "2023",
+      "awarder": "LAK 2023",
+      "url": "",
+      "summary": "Work on fairness in predictive models for student success"
+    },
+    {
+      "title": "Stanford Interdisciplinary Graduate Fellowship",
+      "date": "2016-2019",
+      "awarder": "Stanford University",
+      "url": "",
+      "summary": "Competitive award for interdisciplinary research (3-year merit fellowship)"
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Large-Scale Assessment Design",
+      "date": "2021",
+      "issuer": "OECD PILA Project",
+      "url": "",
+      "icon": "fa-solid fa-clipboard-check"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Author of 20+ peer-reviewed publications spanning learning analytics, educational data mining, and human-computer interaction in education",
+      "publisher": "Various International Conferences and Journals",
+      "releaseDate": "2016-2024",
+      "url": "",
+      "summary": "Publication list and professional references available upon request"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Data Analysis & Psychometrics",
+      "level": "Expert",
+      "icon": "fa-solid fa-chart-line",
+      "keywords": [
+        "R (tidyverse, lme4, psych)",
+        "Python (pandas, NumPy, SciPy)",
+        "Variational IRT modeling",
+        "Psychometrics",
+        "IRT scaling",
+        "Experimental design",
+        "Validity analysis"
+      ]
+    },
+    {
+      "name": "Machine Learning & AI",
+      "level": "Advanced",
+      "icon": "fa-solid fa-robot",
+      "keywords": [
+        "PyTorch",
+        "scikit-learn",
+        "Predictive modeling",
+        "Educational data mining",
+        "Recommender systems",
+        "AI in education"
+      ]
+    },
+    {
+      "name": "Data Visualization & Tools Development",
+      "level": "Advanced",
+      "icon": "fa-solid fa-chart-pie",
+      "keywords": [
+        "Jupyter Analytics platform",
+        "JavaScript/TypeScript",
+        "Vega",
+        "D3",
+        "Plotly",
+        "Interactive dashboards",
+        "Real-time analytics"
+      ]
+    },
+    {
+      "name": "Project Management",
+      "level": "Expert",
+      "icon": "fa-solid fa-tasks",
+      "keywords": [
+        "Agile methodologies",
+        "International project coordination",
+        "Multi-disciplinary teams",
+        "Budget management (€180k+)",
+        "Stakeholder coordination",
+        "Deliverables tracking"
+      ]
+    },
+    {
+      "name": "Communication & Writing",
+      "level": "Expert",
+      "icon": "fa-solid fa-pen",
+      "keywords": [
+        "Technical writing",
+        "Policy briefs",
+        "20+ publications",
+        "Report writing",
+        "Presentation skills",
+        "Multilingual communication"
+      ]
+    },
+    {
+      "name": "Collaboration & Leadership",
+      "level": "Expert",
+      "icon": "fa-solid fa-users",
+      "keywords": [
+        "Multicultural teams",
+        "Cross-institutional coordination",
+        "Mentoring",
+        "Workshop organization",
+        "Git/GitHub",
+        "Version control"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker",
+      "icon": ""
+    },
+    {
+      "language": "Swedish",
+      "fluency": "Intermediate",
+      "icon": ""
+    },
+    {
+      "language": "French",
+      "fluency": "Basic (with commitment to improve)",
+      "icon": ""
+    }
+  ],
+  "interests": [
+    {
+      "name": "Large-Scale Educational Assessments",
+      "icon": "fa-solid fa-graduation-cap",
+      "keywords": [
+        "PISA methodology",
+        "Cross-national assessment",
+        "Psychometric modeling",
+        "International standards",
+        "Educational policy"
+      ]
+    },
+    {
+      "name": "Learning Analytics",
+      "icon": "fa-solid fa-chart-area",
+      "keywords": [
+        "Student process data",
+        "Real-time analytics",
+        "Predictive modeling",
+        "Educational data mining",
+        "Assessment innovation"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Available upon request",
+      "icon": "fa-solid fa-envelope",
+      "reference": "Professional references from OECD collaborators, academic supervisors, and industry partners available upon request"
+    }
+  ],
+  "projects": [
+    {
+      "name": "OECD PILA Karel Assessment",
+      "summary": "Lead designer of experimental computer science assessment for OECD, implemented across 4 countries with 500+ participants",
+      "highlights": [
+        "International coordination",
+        "Assessment design", 
+        "Cross-national data analysis"
+      ],
+      "startDate": "2021-01-01",
+      "endDate": "2023-12-31",
+      "url": ""
+    },
+    {
+      "name": "Jupyter Analytics Platform",
+      "summary": "Co-developed learning analytics toolkit enabling real-time collection of student activity data and instructor dashboards",
+      "highlights": [
+        "Open-source tool",
+        "Real-time analytics",
+        "Multiple publications"
+      ],
+      "startDate": "2020-08-01",
+      "endDate": "2024-08-14",
+      "url": ""
+    },
+    {
+      "name": "Variational Item Response Theory",
+      "summary": "Pioneered vIRT model integrating ML with classical IRT, awarded Best Paper at EDM 2020",
+      "highlights": [
+        "Best Paper Award",
+        "Innovative psychometrics",
+        "ML integration"
+      ],
+      "startDate": "2019-01-01",
+      "endDate": "2020-12-31",
+      "url": ""
+    }
+  ],
+  "volunteer": [],
+  "leadership": [
+    {
+      "position": "Co-Executive Director",
+      "organization": "ETH Zurich - EPFL Joint Doctoral Program in the Learning Sciences",
+      "location": "Switzerland",
+      "url": "",
+      "startDate": "2022-01-01",
+      "endDate": "2024-08-14",
+      "summary": "Organized workshops and mentored 20+ PhD students in international program",
+      "highlights": [
+        "Handled day-to-day academic issues involving the program",
+        "Planned and organized mandatory PhD seminars for first-year students",
+        "Facilitated the JDPLS Winter School"
+      ]
+    }
+  ]
+}
