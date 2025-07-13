@@ -38,5 +38,17 @@ about_content: |
 
   My research has been recognized with the Stanford Interdisciplinary Graduate Fellowship, best-paper awards at major international conferences, and several grants supporting innovative AI tools for creativity and problem-solving in education. I regularly collaborate with educational institutions across Europe to implement and evaluate these technologies in real-world learning environments.
 
+  ## Research Methodology & Technical Expertise
+
+  My research employs rigorous quantitative research methods and advanced computational techniques to investigate learning phenomena. I specialize in:
+
+  - **Applied Machine Learning**: Developing and deploying ML models for educational applications, including predictive analytics for student performance and automated assessment systems
+  - **Deep Learning & Neural Networks**: Implementing neural network architectures for educational data analysis, including CNNs for gesture recognition in maker spaces and RNNs for sequential learning behavior analysis
+  - **Large Language Models (LLMs)**: Engineering and fine-tuning LLMs for educational applications, including automated feedback systems and intelligent tutoring platforms
+  - **Generative AI**: Developing generative AI tools for creative learning experiences and automated content generation in educational contexts
+  - **Full-Stack AI Development**: Building end-to-end AI systems from data collection and preprocessing to model deployment and user interfaces
+  - **Quantitative Data Analysis**: Advanced statistical modeling, multivariate analysis, and experimental design for educational research
+  - **Learning Analytics**: Developing data pipelines and analytical frameworks for large-scale educational data analysis
+
 # research_content: |
 ---
