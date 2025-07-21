@@ -9,7 +9,7 @@ related_posts: false
 # thumbnail: assets/img/publication_preview/edm-2025.png
 ---
 
-We will present **two full papers at EDM 2025** in Palermo that demonstrate how large (multimodal) language models can be leveraged to generate data and representations that improve the performance of smaller, task-specific models for student modeling and educational data mining.
+Two new **full papers accepted to EDM 2025** illustrate how large language and large multimodal models can be used to supply data and representations that boost the performance of smaller, task-specific algorithms for student modelling and educational data mining.
 
 # Bridging the Data Gap: Using LLMs to Augment Datasets for Text Classification
 
