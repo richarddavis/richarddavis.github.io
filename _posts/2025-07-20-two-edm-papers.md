@@ -9,7 +9,7 @@ related_posts: false
 # thumbnail: assets/img/publication_preview/edm-2025.png
 ---
 
-We will present **two full papers at EDM 2025** in Palermo, Italy on leveraging large-language and large-multimodal models to advance educational data mining.
+Thrilled to share that our group will present **two full papers at EDM 2025** in Palermo, each showing how the representational power of large (multimodal) language models can be harnessed to boost the performance of leaner, domain-specific student-modeling algorithms.
 
 # Bridging the Data Gap: Using LLMs to Augment Datasets for Text Classification
 
@@ -24,6 +24,7 @@ We introduce and evaluate a novel, five-stage methodological pipeline to augment
 - Seyed Parsa Neshaei
 - Paola Mejia
 - Tanya Nazaretsky
+- Richard Lee Davis
 - Tanja Käser
 
 # Using Large Multimodal Models to Extract Knowledge Components for Knowledge Tracing from Multimedia Question Information
@@ -38,4 +39,5 @@ We propose a novel, zero-shot method using Large Multimodal Models (LMMs) to ext
 
 - Hyeongdon Moon
 - Seyed Parsa Neshaei
+- Richard Lee Davis
 - Pierre Dillenbourg
