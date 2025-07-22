@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-presenting-on-multimodal-ai-to-delegation-from-the-flemish-region-in-belgium",
+        },{id: "post-two-full-papers-at-edm-2025-in-palermo",
+        
+          title: "Two Full Papers at EDM 2025 in Palermo",
+        
+        description: "We will present two full papers at EDM 2025 on LLM-driven data augmentation and multimodal knowledge component extraction.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/two-edm-papers/";
+          
+        },
+      },{id: "post-presenting-on-multimodal-ai-to-delegation-from-the-flemish-region-in-belgium",
         
           title: "Presenting on Multimodal AI to Delegation from the Flemish Region in Belgium",
         
