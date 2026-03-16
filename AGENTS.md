@@ -19,21 +19,21 @@ al-folio is an academic Jekyll theme. Key features enabled on this site:
 
 ### Directory Structure
 
-| Directory | Purpose |
-|-----------|---------|
-| `_pages/` | Main site pages (about, publications, blog, projects, cv, etc.) |
-| `_posts/` | Blog posts (permalink: `/blog/:year/:title/`) |
-| `_projects/` | Portfolio projects (categories: "work" and "fun") |
-| `_news/` | News announcements shown on homepage |
-| `_bibliography/` | `papers.bib` — academic publications rendered via jekyll-scholar |
-| `_books/` | Book collection/reviews |
-| `_data/` | YAML config: `cv.yml`, `coauthors.yml`, `repositories.yml`, `socials.yml`, `venues.yml` |
-| `_layouts/` | Liquid templates (default, about, cv, page, post, bib, book-shelf, etc.) |
-| `_includes/` | Reusable components (header, footer, social, figures, resume sections) |
-| `_sass/` | SCSS stylesheets (`_base.scss`, `_variables.scss`, `_themes.scss`, etc.) |
-| `_plugins/` | Custom Ruby plugins (scholar citations, cache busting, external posts, etc.) |
-| `assets/` | Static assets — images, CSS, JS, PDFs, fonts, documents |
-| `.github/workflows/` | CI/CD (deploy, Prettier, accessibility, broken links, CodeQL, Lighthouse) |
+| Directory            | Purpose                                                                                 |
+| -------------------- | --------------------------------------------------------------------------------------- |
+| `_pages/`            | Main site pages (about, publications, blog, projects, cv, etc.)                         |
+| `_posts/`            | Blog posts (permalink: `/blog/:year/:title/`)                                           |
+| `_projects/`         | Portfolio projects (categories: "work" and "fun")                                       |
+| `_news/`             | News announcements shown on homepage                                                    |
+| `_bibliography/`     | `papers.bib` — academic publications rendered via jekyll-scholar                        |
+| `_books/`            | Book collection/reviews                                                                 |
+| `_data/`             | YAML config: `cv.yml`, `coauthors.yml`, `repositories.yml`, `socials.yml`, `venues.yml` |
+| `_layouts/`          | Liquid templates (default, about, cv, page, post, bib, book-shelf, etc.)                |
+| `_includes/`         | Reusable components (header, footer, social, figures, resume sections)                  |
+| `_sass/`             | SCSS stylesheets (`_base.scss`, `_variables.scss`, `_themes.scss`, etc.)                |
+| `_plugins/`          | Custom Ruby plugins (scholar citations, cache busting, external posts, etc.)            |
+| `assets/`            | Static assets — images, CSS, JS, PDFs, fonts, documents                                 |
+| `.github/workflows/` | CI/CD (deploy, Prettier, accessibility, broken links, CodeQL, Lighthouse)               |
 
 ### Key Pages
 
@@ -47,6 +47,7 @@ al-folio is an academic Jekyll theme. Key features enabled on this site:
 ### Configuration
 
 Main config is `_config.yml`. Key settings:
+
 - Site names use `first_name`, `middle_name`, `last_name` fields (title is `blank`).
 - Jekyll Scholar: bibliography in `_bibliography/papers.bib`, APA style, max 3 authors displayed.
 - Pagination: 5 posts/page, 3 related posts.
@@ -95,12 +96,14 @@ staticrypt assets/documents/<name>/index.html -p "password" -d assets/documents/
 ```
 
 Key flags:
+
 - `-d` outputs the encrypted file in-place (same directory).
 - `--remember 30` adds a "Remember me" checkbox (30-day expiry).
 - `-c false` disables the config file.
 - `--short` suppresses the short-password warning.
 
 Caveats:
+
 - Only the HTML is encrypted. Supporting assets (images, CSS, JS) in subdirectories are still directly accessible.
 - Not suitable for truly sensitive data since encryption is client-side.
 - If the unencrypted version was previously pushed, you must rewrite git history (`git reset` + force push) to remove it.
