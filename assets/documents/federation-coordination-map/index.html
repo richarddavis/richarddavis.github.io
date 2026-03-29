@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Federation Coordination Map</title>
+<style>
+  :root {
+    --bg: #fff;
+    --text: #3d3d3a;
+    --muted: #73726c;
+    --panel-bg: #fafaf9;
+    --panel-border: #e8e8e4;
+    --hover-bg: #f5f5f3;
+    --infra: #5DCAA5;
+    --policy: #AFA9EC;
+    --local: #FAC775;
+    --infra-stroke: #0F6E56;
+    --policy-stroke: #534AB7;
+    --local-stroke: #BA7517;
+    --infra-light: #eaf7f1;
+    --policy-light: #f0eefb;
+    --local-light: #fef5e2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1a1a1a;
+      --text: #c2c0b6;
+      --muted: #9c9a92;
+      --panel-bg: #222;
+      --panel-border: #333;
+      --hover-bg: #2a2a2a;
+      --infra: #1D9E75;
+      --policy: #7F77DD;
+      --local: #EF9F27;
+      --infra-stroke: #0F6E56;
+      --policy-stroke: #534AB7;
+      --local-stroke: #BA7517;
+      --infra-light: #1a2e26;
+      --policy-light: #232035;
+      --local-light: #2e2516;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    overflow: hidden;
+  }
+  .layout {
+    display: flex;
+    height: 100vh;
+  }
+  .chart-side {
+    flex: 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    position: relative;
+    min-width: 0;
+  }
+  .content-side {
+    flex: 0 0 50%;
+    border-left: 1px solid var(--panel-border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .content-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--muted);
+    font-size: 14px;
+    padding: 40px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .content-header {
+    padding: 24px 32px 16px;
+    border-bottom: 1px solid var(--panel-border);
+    flex-shrink: 0;
+  }
+  .content-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .content-header .ring-label {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+  .ring-label-infra { background: var(--infra-light); color: var(--infra-stroke); }
+  .ring-label-policy { background: var(--policy-light); color: var(--policy-stroke); }
+  .ring-label-local { background: var(--local-light); color: var(--local-stroke); }
+  .content-body {
+    padding: 20px 32px 32px;
+    overflow-y: auto;
+    flex: 1;
+  }
+  .content-body .intro {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .content-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .content-body li {
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+  .content-body li::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 13px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    opacity: 0.4;
+  }
+  .content-body li.ring-infra::before { background: var(--infra); opacity: 0.8; }
+  .content-body li.ring-policy::before { background: var(--policy); opacity: 0.8; }
+  .content-body li.ring-local::before { background: var(--local); opacity: 0.8; }
+
+  /* Edit mode toggle */
+  .mode-toggle {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .mode-toggle button {
+    font-size: 12px;
+    padding: 5px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-bg);
+    color: var(--text);
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .mode-toggle button:hover { background: var(--hover-bg); }
+  .mode-toggle button.active-mode {
+    background: var(--text);
+    color: var(--bg);
+    border-color: var(--text);
+  }
+
+  /* Editable items */
+  .editing li {
+    padding-right: 28px;
+  }
+  .editing li[contenteditable] {
+    outline: none;
+    border-bottom: 1px dashed var(--panel-border);
+  }
+  .editing li[contenteditable]:focus {
+    border-bottom-color: var(--muted);
+  }
+  .editing .intro[contenteditable] {
+    outline: none;
+    border-bottom: 1px dashed var(--panel-border);
+    min-height: 1.5em;
+  }
+  .editing .intro[contenteditable]:focus {
+    border-bottom-color: var(--muted);
+  }
+  .editing .intro[contenteditable]:empty::before {
+    content: attr(placeholder);
+    color: var(--panel-border);
+  }
+  .item-delete {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 0;
+  }
+  .item-delete:hover { color: #d44; background: rgba(221,68,68,0.1); }
+  .editing .item-delete { display: block; }
+  .add-item {
+    display: none;
+    margin-top: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    border: 1px dashed var(--panel-border);
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 6px;
+    font-family: inherit;
+    width: 100%;
+    text-align: left;
+  }
+  .add-item:hover { border-color: var(--muted); color: var(--text); }
+  .editing .add-item { display: block; }
+
+  /* Combined domain view sections */
+  .ring-section {
+    margin-bottom: 20px;
+  }
+  .ring-section-header {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .ring-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .chart-title {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .chart-title h1 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .chart-title p {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .legend-wrap {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin: 16px 0 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .legend-row { display: flex; align-items: center; gap: 8px; }
+  .legend-swatch { width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; }
+  .rule {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 10px 20px 0;
+  }
+  .rule b { font-weight: 500; color: var(--text); }
+
+  svg path.sector {
+    cursor: pointer;
+    transition: opacity 0.15s, filter 0.15s;
+  }
+  svg path.sector:hover {
+    filter: brightness(1.08);
+  }
+  svg path.sector.active {
+    filter: brightness(1.12);
+    stroke-width: 2 !important;
+    stroke-opacity: 1 !important;
+  }
+  svg path.sector.dimmed {
+    opacity: 0.2 !important;
+  }
+
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; height: auto; overflow: auto; }
+    .chart-side { flex: none; }
+    .content-side { flex: none; border-left: none; border-top: 1px solid var(--panel-border); min-height: 50vh; }
+  }
+</style>
+</head>
+<body>
+<div class="mode-toggle">
+  <button id="btn-view" class="active-mode" onclick="setMode('view')">View</button>
+  <button id="btn-edit" onclick="setMode('edit')">Edit</button>
+</div>
+<div class="layout">
+  <div class="chart-side">
+    <div class="chart-title">
+      <h1>KTH Makerspace Network</h1>
+      <p>Federated operating model</p>
+    </div>
+    <svg id="chart" width="100%" viewBox="-80 -20 680 600"></svg>
+    <div class="legend-wrap">
+      <div class="legend-row"><div class="legend-swatch" style="background:var(--infra);border:1px solid var(--infra-stroke)"></div> Shared infrastructure</div>
+      <div class="legend-row"><div class="legend-swatch" style="background:var(--policy);border:1px solid var(--policy-stroke)"></div> Network policies</div>
+      <div class="legend-row"><div class="legend-swatch" style="background:var(--local);border:1px solid var(--local-stroke)"></div> Local ownership</div>
+    </div>
+    <div class="rule">
+      <b>Share</b> where duplication creates waste &middot; <b>Standardise</b> where inconsistency creates risk &middot; <b>Own locally</b> where specialisation adds value
+    </div>
+  </div>
+  <div class="content-side">
+    <div class="content-placeholder" id="placeholder">
+      Click any segment in the chart to explore how that coordination domain maps to the federated model.
+    </div>
+    <div id="content-panel" style="display:none;">
+      <div class="content-header">
+        <h2 id="panel-title"></h2>
+        <span class="ring-label" id="panel-ring-label"></span>
+      </div>
+      <div class="content-body">
+        <p class="intro" id="panel-intro"></p>
+        <ul id="panel-items"></ul>
+        <button class="add-item" id="add-item-btn" onclick="addItem()">+ Add item</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const dark = matchMedia('(prefers-color-scheme: dark)').matches;
+const svg = document.getElementById('chart');
+const ns = 'http://www.w3.org/2000/svg';
+const cx = 260, cy = 260;
+const rings = [
+  { inner: 0, outer: 74 },
+  { inner: 77, outer: 148 },
+  { inner: 151, outer: 218 }
+];
+const ringColors = [
+  getComputedStyle(document.documentElement).getPropertyValue('--infra').trim(),
+  getComputedStyle(document.documentElement).getPropertyValue('--policy').trim(),
+  getComputedStyle(document.documentElement).getPropertyValue('--local').trim()
+];
+const ringStroke = [
+  getComputedStyle(document.documentElement).getPropertyValue('--infra-stroke').trim(),
+  getComputedStyle(document.documentElement).getPropertyValue('--policy-stroke').trim(),
+  getComputedStyle(document.documentElement).getPropertyValue('--local-stroke').trim()
+];
+const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim();
+const textMuted = getComputedStyle(document.documentElement).getPropertyValue('--muted').trim();
+
+const sectorGap = 0;
+const gapWidth = 3; // constant pixel-width gap
+const numSectors = 8;
+const sectorAngle = 360 / numSectors;
+
+const domains = [
+  { name: 'User-facing\ncoherence',     key: 'identity' },
+  { name: 'Equipment &\noperations',    key: 'equipment' },
+  { name: 'External\npartnerships',     key: 'partnerships' },
+  { name: 'Safety &\ncertification',    key: 'safety' },
+  { name: 'Governance &\nresourcing',   key: 'governance' },
+  { name: 'Metrics &\nreporting',       key: 'metrics' },
+  { name: 'Pedagogy &\nprogramming',    key: 'pedagogy' },
+  { name: 'Community\n& culture',       key: 'community' }
+];
+
+const ringNames = ['Shared infrastructure', 'Network policies', 'Local ownership'];
+const ringClasses = ['ring-infra', 'ring-policy', 'ring-local'];
+const ringLabelClasses = ['ring-label-infra', 'ring-label-policy', 'ring-label-local'];
+
+// Content data from the document
+const content = {
+  governance: {
+    title: 'Governance',
+    intro: '',
+    rings: [
+      [
+        'The director group (LG): its logistics, meetings, and record-keeping.',
+        'The network model.'
+      ],
+      [
+        'A decision-rights framework: a written agreement on what each director decides locally and what requires network agreement.',
+        'A common understanding of how shared activities will be funded.',
+        'A regular review cycle for the operating model itself: What is working, what needs revision, coordination needs that have evolved.',
+        'A lightweight conflict resolution process that is pre-agreed, so disagreements are handled through a known procedure.'
+      ],
+      [
+        'School-specific leadership relationships.'
+      ]
+    ]
+  },
+  safety: {
+    title: 'Safety & certification',
+    intro: '',
+    rings: [
+      [
+        'A certification tracking system that records credentials centrally and makes them available at any space.',
+        'Shared training materials and delivery resources on Canvas, so training content is developed once and used everywhere.',
+        'An incident reporting system accessible from any space.'
+      ],
+      [
+        'Identical safety procedures for each equipment class and material type.',
+        'A single certification framework: unified training content, a single credential per equipment category, valid at every space.',
+        'Standardized tiered access levels (e.g., "Basic Workshop Access," "Laser Certified," "Unsupervised Access"), with the same names, requirements, and verification method network-wide.',
+        'Unified incident response protocol.',
+        'Unified policies on which tools require supervision and which are restricted.'
+      ],
+      [
+        'Scheduling of safety briefings and training sessions.'
+      ]
+    ]
+  },
+  identity: {
+    title: 'Identity & user experience',
+    intro: 'The network should feel coherent to students, teachers, and visitors even when the spaces remain locally distinctive.',
+    rings: [
+      [
+        'A single website or web entry point for the network, with space-specific subpages.',
+        'A shared equipment directory showing what exists at each space, including specialized tools.',
+        'A unified booking platform showing real-time availability across all six spaces.',
+        'One user account system that grants access to the entire network.',
+        'A shared physical access mechanism (e.g., university card activation) so certified users can enter any space they\'re qualified for.',
+        'Shared onboarding resources for new users: a network-wide introductory experience that introduces the entire network, not just one space.'
+      ],
+      [
+        'A shared network name and naming convention.',
+        'A common visual identity: logo, colour scheme, signage templates.',
+        'A minimum service baseline: how users are welcomed, how orientation works, what information is available on arrival.',
+        'Consistent policies on walk-in access vs. reservation, and any time limits on equipment use.',
+        'Standardized communication protocols for news and events.',
+        'Clear expectations about accessibility and inclusion.'
+      ],
+      [
+        'The physical character, interior design, and atmosphere of each space.',
+        'Discipline-specific content, examples, and display.',
+        'Space-specific opening hours, where these need to differ.',
+        'Communications with school-specific faculty and departments.'
+      ]
+    ]
+  },
+  equipment: {
+    title: 'Equipment, materials & operations',
+    intro: '',
+    rings: [
+      [
+        'Bulk purchasing through common vendors for common-tier equipment and materials.',
+        'A network-wide equipment status dashboard (machine availability, maintenance status).',
+        'A shared scrap and reuse system so surplus materials circulate rather than being wasted.',
+        'Standardized CAD/design software suites available at all locations.'
+      ],
+      [
+        'A defined common tier of digital fabrication equipment: same makes and models for equipment categories (e.g., 3D printers, laser cutters) that are present in multiple spaces. The guiding question: "For which tools is cross-space mobility most important for students?"',
+        'Shared maintenance protocols, reporting templates, and replacement schedules for common-tier equipment.',
+        'Common waste management and sustainability practices: recycling, e-waste, hazardous material disposal.'
+      ],
+      [
+        'Specialized equipment and materials dictated by disciplinary needs.',
+        'Day-to-day inventory management and storage.',
+        'School-specific IT infrastructure and software beyond the shared suite.'
+      ]
+    ]
+  },
+  partnerships: {
+    title: 'External partnerships & engagement',
+    intro: 'External partners such as companies, community organizations, K-12 schools, visiting delegations should encounter one coherent network.',
+    rings: [
+      [
+        'A single point of contact for external partnership inquiries.',
+        'A partner database and routing system so inquiries reach the right space.',
+        'Shared protocols for hosting visitors, tours, and delegations that tell the network\'s full story.',
+        'Coordinated industry engagement so the network presents a unified offer.'
+      ],
+      [
+        'Network-level partnership agreement templates, even when a partnership primarily involves one school space.',
+        'A policy on community access (K-12, public): at which spaces and under what conditions.'
+      ],
+      [
+        'Discipline-specific research collaborations.',
+        'Faculty-led partnerships that naturally centre on one school.'
+      ]
+    ]
+  },
+  pedagogy: {
+    title: 'Higher education pedagogy & staff training',
+    intro: '',
+    rings: [
+      [
+        'A teacher training program, offered as a shared service, helping faculty across all five schools integrate making into their courses.',
+        'A unified staff development and student-worker training program that qualifies student workers to operate at any space.'
+      ],
+      [
+        'A shared view of the educational purpose of the network: what it means for the makerspaces to support learning, not just fabrication.',
+        'A common pedagogical stance on how staff interact with users (e.g., "we help you learn to make" rather than "we make things for you.") This should be consistent so that users do not encounter fundamentally different philosophies at different spaces.',
+        'A shared commitment to teacher onboarding and capability-building.'
+      ],
+      [
+        'Course-specific integration within study programs.',
+        'Discipline-specific workshops and teaching formats.'
+      ]
+    ]
+  },
+  metrics: {
+    title: 'Metrics, evaluation & reporting',
+    intro: 'If the network cannot measure itself, it cannot manage itself as a whole or make its case to funders and leadership.',
+    rings: [
+      [
+        'A unified reporting dashboard accessible to all directors and to university leadership.',
+        'Data collection tools and methods.',
+        'Coordinated impact evaluation: shared research on the network\'s effect on learning outcomes, user satisfaction, interdisciplinary collaboration, etc.'
+      ],
+      [
+        'A shared set of KPIs with precise definitions.',
+        'A common data collection cadence and protocol.'
+      ],
+      [
+        'Additional metrics a school tracks for its own purposes.',
+        'Local interpretation of the data and responsive actions.'
+      ]
+    ]
+  },
+  community: {
+    title: 'Community & culture',
+    intro: 'The network\'s stated goal of promoting cross-university collaboration will not happen organically. We will need deliberate programming that brings users across school boundaries.',
+    rings: [
+      [
+        'Network-wide events: showcases, maker fairs, hackathons, interdisciplinary challenges. These should involve all spaces, not just the central space.',
+        'A network-level student advisory board or ambassador program.',
+        'Joint visibility platforms for student projects across the network.',
+        'Shared workshop curricula and materials for recurring offerings.',
+        'Referral pathways: staff at any space can direct users to another space when a project requires tools or expertise not available locally. This requires that staff across the network know what exists at other spaces.'
+      ],
+      [
+        'A shared commitment to fostering cross-school community, not just within-school community.',
+        'Coordinated inclusivity efforts, so that welcoming culture is consistent across spaces.',
+        'Shared norms around project documentation and knowledge sharing.',
+        'A referral norm: staff actively encourage users to explore other spaces and connect with students from other disciplines.',
+        'A coordinated programming calendar so spaces complement rather than duplicate each other.'
+      ],
+      [
+        'Traditions, social norms, and informal relationships that make each space uniquely situated within the school context.'
+      ]
+    ]
+  }
+};
+
+function toRad(deg) { return (deg - 90) * Math.PI / 180; }
+function arcPath(rIn, rOut, startDeg, endDeg) {
+  const s = toRad(startDeg), e = toRad(endDeg);
+  const x1 = cx + rIn * Math.cos(s), y1 = cy + rIn * Math.sin(s);
+  const x2 = cx + rOut * Math.cos(s), y2 = cy + rOut * Math.sin(s);
+  const x3 = cx + rOut * Math.cos(e), y3 = cy + rOut * Math.sin(e);
+  const x4 = cx + rIn * Math.cos(e), y4 = cy + rIn * Math.sin(e);
+  const la = (endDeg - startDeg) > 180 ? 1 : 0;
+  if (rIn === 0) return `M${cx},${cy}L${x2},${y2}A${rOut},${rOut},0,${la},1,${x3},${y3}Z`;
+  return `M${x1},${y1}L${x2},${y2}A${rOut},${rOut},0,${la},1,${x3},${y3}L${x4},${y4}A${rIn},${rIn},0,${la},0,${x1},${y1}Z`;
+}
+function el(tag, attrs) {
+  const e = document.createElementNS(ns, tag);
+  for (const [k,v] of Object.entries(attrs)) e.setAttribute(k, v);
+  return e;
+}
+
+
+// Track all sector paths
+const sectorPaths = [];
+let activeSelection = null;
+
+// Sectors - all rings visible for all domains (no gap, no stroke)
+domains.forEach((d, i) => {
+  const startDeg = i * sectorAngle;
+  const endDeg = (i + 1) * sectorAngle;
+  rings.forEach((ring, ri) => {
+    const p = el('path', {
+      d: arcPath(ring.inner, ring.outer, startDeg, endDeg),
+      fill: ringColors[ri],
+      opacity: '0.65',
+      stroke: 'none',
+      class: 'sector',
+      'data-domain': i,
+      'data-ring': ri
+    });
+    p.addEventListener('click', () => selectSegment(i, ri));
+    svg.appendChild(p);
+    sectorPaths.push(p);
+  });
+});
+
+// Overlay: constant-width radial gap lines (parallel, not converging)
+const bgColor = dark ? '#1a1a1a' : '#ffffff';
+const outerR = rings[2].outer;
+for (let i = 0; i < numSectors; i++) {
+  const deg = i * sectorAngle;
+  const rad = toRad(deg);
+  const x2 = cx + outerR * Math.cos(rad);
+  const y2 = cy + outerR * Math.sin(rad);
+  svg.appendChild(el('line', {
+    x1: cx, y1: cy, x2, y2,
+    stroke: bgColor,
+    'stroke-width': gapWidth,
+    'pointer-events': 'none'
+  }));
+}
+
+// Overlay: ring boundary circles
+rings.forEach((ring) => {
+  if (ring.inner > 0) {
+    svg.appendChild(el('circle', { cx, cy, r: (ring.inner + rings[rings.indexOf(ring) - 1].outer) / 2, fill: 'none', stroke: bgColor, 'stroke-width': gapWidth, 'pointer-events': 'none' }));
+  }
+});
+
+// Ring labels
+const ringLabels = ['Shared\ninfrastructure', 'Network\npolicies', 'Local\nownership'];
+const ringLabelR = [37, 113, 185];
+ringLabels.forEach((label, i) => {
+  const lines = label.split('\n');
+  lines.forEach((line, li) => {
+    const t = el('text', {
+      x: cx, y: cy - ringLabelR[i] + (li - (lines.length-1)/2) * 11,
+      'text-anchor': 'middle', 'dominant-baseline': 'central',
+      fill: textMuted, 'font-size': '10.5px',
+      'font-family': '-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
+      'font-weight': '500', opacity: '0.85',
+      'pointer-events': 'none'
+    });
+    t.textContent = line;
+    svg.appendChild(t);
+  });
+});
+
+// Domain labels (clickable)
+const labelRadius = 250;
+domains.forEach((d, i) => {
+  const midDeg = (i + 0.5) * sectorAngle;
+  const midRad = toRad(midDeg);
+  const lx = cx + labelRadius * Math.cos(midRad);
+  const ly = cy + labelRadius * Math.sin(midRad);
+  const lines = d.name.split('\n');
+  const anchor = lx > cx + 20 ? 'start' : lx < cx - 20 ? 'end' : 'middle';
+  const nudgeX = anchor === 'start' ? 10 : anchor === 'end' ? -10 : 0;
+  const nudgeY = ly < cy - 100 ? -6 : ly > cy + 100 ? 6 : 0;
+  const edgeR = rings[2].outer + 4;
+  const ex = cx + edgeR * Math.cos(midRad);
+  const ey = cy + edgeR * Math.sin(midRad);
+  svg.appendChild(el('line', {
+    x1: ex, y1: ey, x2: lx, y2: ly,
+    stroke: textMuted, 'stroke-width': '0.5', opacity: '0.35',
+    'pointer-events': 'none'
+  }));
+  svg.appendChild(el('circle', { cx: ex, cy: ey, r: '1.5', fill: textMuted, opacity: '0.35', 'pointer-events': 'none' }));
+
+  // Create a group for the label text so we can add a click target
+  const g = document.createElementNS(ns, 'g');
+  g.style.cursor = 'pointer';
+  g.addEventListener('click', () => selectDomain(i));
+
+  // Invisible hit area behind the text
+  const textY = ly + nudgeY;
+  const hitW = 120, hitH = lines.length * 14 + 8;
+  const hitX = anchor === 'start' ? lx + nudgeX - 4 : anchor === 'end' ? lx + nudgeX - hitW + 4 : lx - hitW / 2;
+  const hitY = textY - hitH / 2;
+  const hit = el('rect', { x: hitX, y: hitY, width: hitW, height: hitH, fill: 'transparent' });
+  g.appendChild(hit);
+
+  lines.forEach((line, li) => {
+    const t = el('text', {
+      x: lx + nudgeX,
+      y: textY + li * 14 - (lines.length - 1) * 7,
+      'text-anchor': anchor, 'dominant-baseline': 'central',
+      fill: textColor,
+      'font-size': '12px',
+      'font-family': '-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif',
+      'font-weight': li === 0 ? '500' : '400',
+      'pointer-events': 'none'
+    });
+    t.textContent = line;
+    g.appendChild(t);
+  });
+  svg.appendChild(g);
+});
+
+
+// Load saved edits from localStorage
+const STORAGE_KEY = 'federation-map-edits';
+function loadEdits() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+    const edits = JSON.parse(saved);
+    for (const [key, data] of Object.entries(edits)) {
+      if (content[key]) {
+        if (data.intro !== undefined) content[key].intro = data.intro;
+        if (data.rings) {
+          data.rings.forEach((items, ri) => {
+            if (items !== undefined) content[key].rings[ri] = items;
+          });
+        }
+      }
+    }
+  } catch (e) { /* ignore bad data */ }
+}
+loadEdits();
+
+function saveEdits() {
+  const edits = {};
+  for (const [key, data] of Object.entries(content)) {
+    edits[key] = { intro: data.intro, rings: data.rings };
+  }
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(edits));
+}
+
+// Mode management
+let editMode = false;
+function setMode(mode) {
+  editMode = mode === 'edit';
+  document.getElementById('btn-view').classList.toggle('active-mode', !editMode);
+  document.getElementById('btn-edit').classList.toggle('active-mode', editMode);
+  document.querySelector('.content-body')?.classList.toggle('editing', editMode);
+  // Re-render current selection if any
+  if (activeSelection) {
+    if (activeSelection.startsWith('domain-')) {
+      renderDomainPanel(parseInt(activeSelection.split('-')[1]));
+    } else {
+      const [di, ri] = activeSelection.split('-').map(Number);
+      renderPanel(di, ri);
+    }
+  }
+}
+
+// Selection logic
+function selectSegment(domainIdx, ringIdx) {
+  const key = `${domainIdx}-${ringIdx}`;
+  if (activeSelection === key) {
+    clearSelection();
+    return;
+  }
+  activeSelection = key;
+
+  // Update segment styles
+  sectorPaths.forEach(p => {
+    const pd = parseInt(p.getAttribute('data-domain'));
+    const pr = parseInt(p.getAttribute('data-ring'));
+    p.classList.remove('active', 'dimmed');
+    if (pd === domainIdx && pr === ringIdx) {
+      p.classList.add('active');
+    } else {
+      p.classList.add('dimmed');
+    }
+  });
+
+  renderPanel(domainIdx, ringIdx);
+}
+
+function renderPanel(domainIdx, ringIdx) {
+  const domain = domains[domainIdx];
+  const data = content[domain.key];
+  const items = data.rings[ringIdx];
+
+  document.getElementById('placeholder').style.display = 'none';
+  const panel = document.getElementById('content-panel');
+  panel.style.display = 'flex';
+  panel.style.flexDirection = 'column';
+  panel.style.height = '100%';
+
+  document.getElementById('panel-title').textContent = data.title;
+  const ringLabel = document.getElementById('panel-ring-label');
+  ringLabel.textContent = ringNames[ringIdx];
+  ringLabel.className = 'ring-label ' + ringLabelClasses[ringIdx];
+  ringLabel.style.display = '';
+
+  // Show the single add-item button
+  document.getElementById('add-item-btn').style.display = '';
+
+  const introEl = document.getElementById('panel-intro');
+  if (editMode) {
+    introEl.textContent = data.intro || '';
+    introEl.style.display = 'block';
+    introEl.contentEditable = 'true';
+    introEl.setAttribute('placeholder', 'Add context for this domain...');
+    introEl.oninput = () => {
+      content[domain.key].intro = introEl.textContent.trim();
+      saveEdits();
+    };
+  } else {
+    introEl.contentEditable = 'false';
+    if (data.intro) {
+      introEl.textContent = data.intro;
+      introEl.style.display = 'block';
+    } else {
+      introEl.style.display = 'none';
+    }
+  }
+
+  const contentBody = document.querySelector('.content-body');
+  contentBody.classList.toggle('editing', editMode);
+
+  const list = document.getElementById('panel-items');
+  list.innerHTML = '';
+  items.forEach((item, idx) => {
+    list.appendChild(createListItem(item, domain.key, ringIdx, idx));
+  });
+}
+
+function createListItem(text, domainKey, ringIdx, itemIdx) {
+  const li = document.createElement('li');
+  li.className = ringClasses[ringIdx];
+  li.textContent = text;
+
+  if (editMode) {
+    li.contentEditable = 'true';
+    li.oninput = () => {
+      content[domainKey].rings[ringIdx][itemIdx] = li.textContent.trim();
+      saveEdits();
+    };
+
+    const del = document.createElement('button');
+    del.className = 'item-delete';
+    del.textContent = '\u00d7';
+    del.title = 'Remove item';
+    del.onclick = (e) => {
+      e.stopPropagation();
+      content[domainKey].rings[ringIdx].splice(itemIdx, 1);
+      saveEdits();
+      const di = domains.findIndex(d => d.key === domainKey);
+      if (activeSelection && activeSelection.startsWith('domain-')) {
+        renderDomainPanel(di);
+      } else {
+        renderPanel(di, ringIdx);
+      }
+    };
+    li.appendChild(del);
+  }
+
+  return li;
+}
+
+function addItem(ringIdx) {
+  if (!activeSelection) return;
+  let di, domainKey;
+  if (activeSelection.startsWith('domain-')) {
+    di = parseInt(activeSelection.split('-')[1]);
+    domainKey = domains[di].key;
+    content[domainKey].rings[ringIdx].push('New item');
+    saveEdits();
+    renderDomainPanel(di);
+  } else {
+    const [d, r] = activeSelection.split('-').map(Number);
+    di = d;
+    domainKey = domains[di].key;
+    content[domainKey].rings[r].push('New item');
+    saveEdits();
+    renderPanel(di, r);
+  }
+  // Focus the last added item
+  let targetContainer;
+  if (activeSelection.startsWith('domain-') && ringIdx !== undefined) {
+    targetContainer = document.querySelectorAll('.ring-section')[ringIdx]?.querySelector('ul');
+  } else {
+    targetContainer = document.getElementById('panel-items');
+  }
+  const lastLi = targetContainer?.querySelector('li:last-child');
+  if (lastLi) {
+    lastLi.focus();
+    const range = document.createRange();
+    range.selectNodeContents(lastLi);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+}
+
+function selectDomain(domainIdx) {
+  const key = `domain-${domainIdx}`;
+  if (activeSelection === key) {
+    clearSelection();
+    return;
+  }
+  activeSelection = key;
+
+  // Highlight all three rings for this domain
+  sectorPaths.forEach(p => {
+    const pd = parseInt(p.getAttribute('data-domain'));
+    p.classList.remove('active', 'dimmed');
+    if (pd === domainIdx) {
+      p.classList.add('active');
+    } else {
+      p.classList.add('dimmed');
+    }
+  });
+
+  renderDomainPanel(domainIdx);
+}
+
+function renderDomainPanel(domainIdx) {
+  const domain = domains[domainIdx];
+  const data = content[domain.key];
+
+  document.getElementById('placeholder').style.display = 'none';
+  const panel = document.getElementById('content-panel');
+  panel.style.display = 'flex';
+  panel.style.flexDirection = 'column';
+  panel.style.height = '100%';
+
+  document.getElementById('panel-title').textContent = data.title;
+  const ringLabel = document.getElementById('panel-ring-label');
+  ringLabel.textContent = '';
+  ringLabel.className = 'ring-label';
+  ringLabel.style.display = 'none';
+
+  const introEl = document.getElementById('panel-intro');
+  if (editMode) {
+    introEl.textContent = data.intro || '';
+    introEl.style.display = 'block';
+    introEl.contentEditable = 'true';
+    introEl.setAttribute('placeholder', 'Add context for this domain...');
+    introEl.oninput = () => {
+      content[domain.key].intro = introEl.textContent.trim();
+      saveEdits();
+    };
+  } else {
+    introEl.contentEditable = 'false';
+    if (data.intro) {
+      introEl.textContent = data.intro;
+      introEl.style.display = 'block';
+    } else {
+      introEl.style.display = 'none';
+    }
+  }
+
+  const contentBody = document.querySelector('.content-body');
+  contentBody.classList.toggle('editing', editMode);
+
+  const list = document.getElementById('panel-items');
+  list.innerHTML = '';
+
+  ringNames.forEach((rName, ri) => {
+    const section = document.createElement('div');
+    section.className = 'ring-section';
+
+    const header = document.createElement('span');
+    header.className = 'ring-section-header ' + ringLabelClasses[ri];
+    header.textContent = rName;
+    section.appendChild(header);
+
+    const ul = document.createElement('ul');
+    data.rings[ri].forEach((item, idx) => {
+      ul.appendChild(createListItem(item, domain.key, ri, idx));
+    });
+    section.appendChild(ul);
+
+    if (editMode) {
+      const addBtn = document.createElement('button');
+      addBtn.className = 'add-item';
+      addBtn.textContent = '+ Add item';
+      addBtn.style.display = 'block';
+      addBtn.onclick = () => addItem(ri);
+      section.appendChild(addBtn);
+    }
+
+    list.appendChild(section);
+  });
+
+  // Hide the single add-item button in domain view
+  document.getElementById('add-item-btn').style.display = 'none';
+}
+
+function clearSelection() {
+  activeSelection = null;
+  sectorPaths.forEach(p => p.classList.remove('active', 'dimmed'));
+  document.getElementById('placeholder').style.display = 'flex';
+  document.getElementById('content-panel').style.display = 'none';
+}
+</script>
+</body>
+</html>
