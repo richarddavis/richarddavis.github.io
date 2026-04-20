@@ -1,0 +1,40 @@
+{
+  "vars": ["ai_frequency", "ai_familiarty", "ai_opinions_avg", "ai_perceptions_avg"],
+  "center": {
+    "ai_frequency": 2.5128,
+    "ai_familiarty": 3.304,
+    "ai_opinions_avg": 4.2891,
+    "ai_perceptions_avg": 3.5872
+  },
+  "scale": {
+    "ai_frequency": 1.337,
+    "ai_familiarty": 0.9996,
+    "ai_opinions_avg": 1.5403,
+    "ai_perceptions_avg": 1.3007
+  },
+  "rotation": {
+    "PC1": {
+      "ai_frequency": 0.5222,
+      "ai_familiarty": 0.3692,
+      "ai_opinions_avg": 0.5616,
+      "ai_perceptions_avg": 0.525
+    },
+    "PC2": {
+      "ai_frequency": 0.3112,
+      "ai_familiarty": 0.7521,
+      "ai_opinions_avg": -0.3514,
+      "ai_perceptions_avg": -0.4626
+    }
+  },
+  "medians": {
+    "PC1": 0.0043,
+    "PC2": -0.047,
+    "beh": -0.0344,
+    "att": 0.1324
+  },
+  "var_explained": {
+    "PC1": 55.02,
+    "PC2": 24.46
+  },
+  "n": 273
+}
