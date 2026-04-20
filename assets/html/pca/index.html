@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Where do you land? — KTH Teacher AI Typology</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --ink: #1b1b1b;
+    --mute: #6b6b6b;
+    --rule: #dcdcd4;
+    --accent: #c44;
+    --c-enth: #e41a1c;
+    --c-prag: #377eb8;
+    --c-skep: #4daf4a;
+    --c-nonu: #984ea3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: "Charter", "Georgia", serif; line-height: 1.5; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+  h1 { font-size: 2rem; margin: 0 0 .25rem; letter-spacing: -0.01em; }
+  .sub { color: var(--mute); margin: 0 0 1.5rem; font-size: 1rem; }
+  .caveat {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.2rem;
+    margin: 0 0 3rem;
+    font-size: .92rem;
+    color: #333;
+    line-height: 1.55;
+    border-radius: 0 4px 4px 0;
+  }
+  .caveat strong { color: var(--ink); }
+  h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--mute); margin: 3rem 0 1rem; font-weight: 600; font-family: "Inter", system-ui, sans-serif; }
+  .q { margin: 0 0 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
+  .q:last-child { border-bottom: none; }
+  .q-text { font-size: 1.02rem; margin-bottom: .75rem; }
+  .q-number { color: var(--mute); font-family: "Inter", system-ui, sans-serif; font-size: .8rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: .3rem; }
+  .scale { display: grid; gap: .35rem; font-family: "Inter", system-ui, sans-serif; font-size: .88rem; }
+  .scale-7 { grid-template-columns: repeat(7, 1fr); }
+  .scale-5 { grid-template-columns: repeat(5, 1fr); }
+  .opt { position: relative; }
+  .opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .opt label {
+    display: block; padding: .55rem .4rem; text-align: center; cursor: pointer;
+    border: 1px solid var(--rule); border-radius: 4px; background: #fff;
+    font-size: .78rem; color: var(--mute); line-height: 1.25;
+    transition: all .12s ease;
+    min-height: 3.2rem; display: flex; align-items: center; justify-content: center;
+  }
+  .opt label:hover { border-color: var(--ink); color: var(--ink); }
+  .opt input:checked + label {
+    background: var(--ink); color: #fff; border-color: var(--ink);
+  }
+  .controls { margin-top: 2.5rem; display: flex; gap: 1rem; align-items: center; }
+  button.go {
+    font-family: "Inter", system-ui, sans-serif; font-size: .95rem; font-weight: 500;
+    padding: .75rem 1.5rem; border: 1px solid var(--ink); background: var(--ink); color: #fff;
+    border-radius: 4px; cursor: pointer; letter-spacing: 0.02em;
+  }
+  button.go:hover { background: var(--accent); border-color: var(--accent); }
+  button.go:disabled { opacity: .4; cursor: not-allowed; }
+  .reset { font-family: "Inter", system-ui, sans-serif; font-size: .85rem; color: var(--mute); background: none; border: none; cursor: pointer; text-decoration: underline; }
+  #result { margin-top: 3rem; }
+  #result.hidden { display: none; }
+  .result-type { font-size: 2rem; margin: 0 0 .5rem; letter-spacing: -0.01em; }
+  .result-type.Enthusiastic { color: var(--c-enth); }
+  .result-type.Pragmatic { color: var(--c-prag); }
+  .result-type.Disengaged { color: var(--c-skep); }
+  .result-type.Positive { color: var(--c-nonu); }
+  .result-desc { color: #333; }
+  .result-desc .scores { font-family: "Inter", system-ui, sans-serif; font-size: .85rem; color: var(--mute); margin-top: 1rem; }
+  .plot-wrap { margin-top: 2rem; background: #fff; border: 1px solid var(--rule); border-radius: 6px; padding: 1.5rem; }
+  svg { width: 100%; height: auto; display: block; font-family: "Inter", system-ui, sans-serif; }
+  .legend { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1rem; font-family: "Inter", system-ui, sans-serif; font-size: .85rem; }
+  .legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: .4rem; vertical-align: middle; }
+  .color-by { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: 1rem; font-family: "Inter", system-ui, sans-serif; font-size: .85rem; color: var(--mute); }
+  .color-by .label { margin-right: .25rem; }
+  .color-by .opt-cb input { position: absolute; opacity: 0; pointer-events: none; }
+  .color-by .opt-cb label {
+    display: inline-block; padding: .35rem .7rem; border: 1px solid var(--rule); border-radius: 4px;
+    background: #fff; color: var(--mute); cursor: pointer; transition: all .12s ease;
+  }
+  .color-by .opt-cb label:hover { border-color: var(--ink); color: var(--ink); }
+  .color-by .opt-cb input:checked + label { background: var(--ink); color: #fff; border-color: var(--ink); }
+  footer { margin-top: 4rem; font-family: "Inter", system-ui, sans-serif; font-size: .8rem; color: var(--mute); }
+  footer a { color: var(--mute); }
+  @media (max-width: 560px) {
+    .scale-7 { grid-template-columns: repeat(4, 1fr); }
+    .opt label { font-size: .72rem; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Where do you land?</h1>
+  <p class="sub">Answer six questions, and we'll plot you against 273 KTH teachers surveyed in HT24.</p>
+
+  <div class="caveat">
+    <strong>A note on what this is.</strong> The underlying PCA was fit on four composites built from <em>all 14</em> relevant survey items. To keep this short, you'll answer only <strong>six</strong> questions — two representative items per composite — so your position is the best estimate of where you would land given what you've answered, not identical to a full-survey score.
+  </div>
+
+  <form id="survey">
+    <h2>Your use of AI</h2>
+
+    <div class="q" data-var="ai_frequency" data-scale="5">
+      <div class="q-number">1 / 6</div>
+      <div class="q-text">How frequently do you use AI chatbots in your role as a teacher?</div>
+      <div class="scale scale-5"></div>
+    </div>
+
+    <div class="q" data-var="ai_familiarty" data-scale="5">
+      <div class="q-number">2 / 6</div>
+      <div class="q-text">How familiar are you with AI chatbots like ChatGPT and Microsoft Copilot?</div>
+      <div class="scale scale-5"></div>
+    </div>
+
+    <h2>Your opinions about AI in education</h2>
+
+    <div class="q" data-var="ai_allowed" data-scale="7">
+      <div class="q-number">3 / 6</div>
+      <div class="q-text">AI chatbots should be allowed and integrated into education.</div>
+      <div class="scale scale-7"></div>
+    </div>
+
+    <div class="q" data-var="ai_benefits_risks" data-scale="7">
+      <div class="q-number">4 / 6</div>
+      <div class="q-text">The benefits of incorporating AI chatbots in education outweigh the potential risks and ethical concerns.</div>
+      <div class="scale scale-7"></div>
+    </div>
+
+    <h2>Your perceptions of AI's impact on students</h2>
+
+    <div class="q" data-var="ai_engagement" data-scale="7-neg">
+      <div class="q-number">5 / 6</div>
+      <div class="q-text">How do you perceive the impact of AI chatbots on student engagement and motivation?</div>
+      <div class="scale scale-7"></div>
+    </div>
+
+    <div class="q" data-var="ai_subject_matter" data-scale="7-neg">
+      <div class="q-number">6 / 6</div>
+      <div class="q-text">How do you perceive the impact of AI chatbots on student subject matter understanding?</div>
+      <div class="scale scale-7"></div>
+    </div>
+
+    <div class="controls">
+      <button type="submit" class="go" id="submit" disabled>See where I land</button>
+      <button type="button" class="reset" id="reset">Reset</button>
+    </div>
+  </form>
+
+  <section id="result" class="hidden">
+    <div class="plot-wrap">
+      <div class="color-by" role="radiogroup" aria-label="Colour points by">
+        <span class="label">Colour by:</span>
+        <span class="opt-cb"><input type="radio" name="colorBy" id="cb-quadrant" value="quadrant" checked><label for="cb-quadrant">Quadrant</label></span>
+        <span class="opt-cb"><input type="radio" name="colorBy" id="cb-teach" value="teach_changed"><label for="cb-teach">Teaching change</label></span>
+        <span class="opt-cb"><input type="radio" name="colorBy" id="cb-assess" value="assess_changed"><label for="cb-assess">Assessment change</label></span>
+        <span class="opt-cb"><input type="radio" name="colorBy" id="cb-orient" value="orientation"><label for="cb-orient">Change type</label></span>
+      </div>
+      <svg id="plot" viewBox="0 0 700 500" aria-label="PCA scatter"></svg>
+      <div class="legend" id="legend"></div>
+    </div>
+    <h2 style="margin-top:2.5rem">Your profile</h2>
+    <div id="result-body"></div>
+  </section>
+
+  <footer>
+    Based on principal components analysis of four engagement measures (frequency, familiarity, opinions, perceptions) from the HT24 teacher survey (n = 273, KTH). PC1 captures general AI engagement (55% of variance); PC2 captures attitude–behaviour dissociation (24.5%). Quadrants use a median split on both components.
+  </footer>
+</div>
+
+<script>
+const LABELS_5_FREQ = ["Never", "Once\nper term", "Monthly", "Weekly", "Daily"];
+const LABELS_5_FAM  = ["Not at all\nfamiliar", "Slightly\nfamiliar", "Moderately\nfamiliar", "Very\nfamiliar", "Extremely\nfamiliar"];
+const LABELS_7_AGREE = ["Totally\ndisagree","Largely\ndisagree","Partially\ndisagree","Neither","Partially\nagree","Largely\nagree","Totally\nagree"];
+const LABELS_7_POSNEG = ["Totally\nnegative","Largely\nnegative","Partially\nnegative","Neither","Partially\npositive","Largely\npositive","Totally\npositive"];
+
+const LABEL_MAP = {
+  "ai_frequency":   { labels: LABELS_5_FREQ,   values: [1,2,3,4,5] }, // already reverse-coded: higher = more often
+  "ai_familiarty":  { labels: LABELS_5_FAM,    values: [1,2,3,4,5] },
+  "ai_allowed":     { labels: LABELS_7_AGREE,  values: [1,2,3,4,5,6,7] },
+  "ai_benefits_risks": { labels: LABELS_7_AGREE, values: [1,2,3,4,5,6,7] },
+  "ai_engagement":  { labels: LABELS_7_POSNEG, values: [1,2,3,4,5,6,7] },
+  "ai_subject_matter": { labels: LABELS_7_POSNEG, values: [1,2,3,4,5,6,7] }
+};
+
+const TYPE_DESCRIPTIONS = {
+  "Enthusiastic Adopter": "High on both axes — above-median in AI use and familiarity <em>and</em> above-median in positive opinions and perceptions. Heavy user, enthusiastic supporter. In this quadrant (n = 89), 91% report changing their teaching and 64% changing their assessment practices — the highest rates in the sample. Among the assessment-changers (n = 46), 41% responded in an <em>embracing</em> way (redesigning assessment around AI) — the highest embracing rate of any group.",
+  "Pragmatic Adopter": "Above-median in use and familiarity, below-median in attitudes. You use AI regularly and know what it can do, but your views of it — for education and for student learning — are less favourable than the population norm. In this quadrant (n = 48), 88% report changing their teaching and 67% changing their assessment. Among the assessment-changers (n = 26), the split is 38% defensive, 27% embracing, 35% mixed.",
+  "Disengaged Skeptic": "Below-median on both axes — limited AI use and negative-leaning attitudes toward it. In this quadrant (n = 88), only 44% report changing their teaching and 47% their assessment — the lowest teaching-change rate in the sample. Among the assessment-changers (n = 35), 66% responded defensively (in-class supervision, oral exams, plagiarism detection) and only 11% embracing — the most defensive profile of any quadrant.",
+  "Positive Non-user": "Below-median use and familiarity, above-median attitudes — attitudinally favourable toward AI but not yet engaged with it. In this quadrant (n = 48), 65% report changing their teaching and 50% their assessment. Among the assessment-changers (n = 17), 59% responded defensively — notable because this group's embracing rate (29%) is still well below the Enthusiastic Adopters' (41%), even though both quadrants share above-median attitudes. Attitudes alone don't appear to move teachers toward embracing assessment change."
+};
+
+const SCALE_KIND = {
+  "ai_frequency":   "freq",
+  "ai_familiarty":  "fam",
+  "ai_allowed":     "agree",
+  "ai_benefits_risks": "agree",
+  "ai_engagement":  "posneg",
+  "ai_subject_matter": "posneg"
+};
+
+// --- Build the inputs ---------------------------------------------------
+function buildScales() {
+  document.querySelectorAll(".q").forEach(q => {
+    const v = q.dataset.var;
+    const spec = LABEL_MAP[v];
+    const holder = q.querySelector(".scale");
+    spec.values.forEach((val, i) => {
+      const id = `${v}_${val}`;
+      const wrap = document.createElement("div");
+      wrap.className = "opt";
+      wrap.innerHTML = `
+        <input type="radio" name="${v}" value="${val}" id="${id}">
+        <label for="${id}">${spec.labels[i].replace(/\n/g,"<br>")}</label>`;
+      holder.appendChild(wrap);
+    });
+  });
+  document.querySelectorAll("input[type=radio]").forEach(r => r.addEventListener("change", checkComplete));
+}
+
+function checkComplete() {
+  const vars = Object.keys(LABEL_MAP);
+  const allAnswered = vars.every(v => document.querySelector(`input[name="${v}"]:checked`));
+  document.getElementById("submit").disabled = !allAnswered;
+}
+
+// --- Projection ---------------------------------------------------------
+function readAnswers() {
+  const a = {};
+  Object.keys(LABEL_MAP).forEach(v => {
+    const el = document.querySelector(`input[name="${v}"]:checked`);
+    a[v] = Number(el.value);
+  });
+  return a;
+}
+
+function projectUser(answers, model) {
+  const composites = {
+    ai_frequency: answers.ai_frequency,
+    ai_familiarty: answers.ai_familiarty,
+    ai_opinions_avg: (answers.ai_allowed + answers.ai_benefits_risks) / 2,
+    ai_perceptions_avg: (answers.ai_engagement + answers.ai_subject_matter) / 2
+  };
+  const z = model.vars.map(v => (composites[v] - model.center[v]) / model.scale[v]);
+  const PC1 = model.vars.reduce((s, v, i) => s + z[i] * model.rotation.PC1[v], 0);
+  const PC2 = model.vars.reduce((s, v, i) => s + z[i] * model.rotation.PC2[v], 0);
+  const beh = (PC1 + PC2) / Math.SQRT2;
+  const att = (PC1 - PC2) / Math.SQRT2;
+  return { PC1, PC2, beh, att, composites };
+}
+
+function classify(beh, att, med) {
+  if (beh >= med.beh && att >= med.att) return "Enthusiastic Adopter";
+  if (beh >= med.beh && att <  med.att) return "Pragmatic Adopter";
+  if (beh <  med.beh && att <  med.att) return "Disengaged Skeptic";
+  return "Positive Non-user";
+}
+
+// --- Plot ---------------------------------------------------------------
+const NA_COLOR = "#cfcfcf";
+const COLOR_SCHEMES = {
+  quadrant: {
+    field: "quad_type",
+    label: "Quadrant",
+    colors: {
+      "Enthusiastic Adopter": "#e41a1c",
+      "Pragmatic Adopter":    "#377eb8",
+      "Disengaged Skeptic":   "#4daf4a",
+      "Positive Non-user":    "#984ea3"
+    },
+    order: ["Enthusiastic Adopter", "Pragmatic Adopter", "Disengaged Skeptic", "Positive Non-user"]
+  },
+  teach_changed: {
+    field: "teach_changed",
+    label: "Teaching change",
+    colors: { "Changed": "#2b8cbe", "No change": "#bdbdbd" },
+    order: ["Changed", "No change"],
+    naLabel: "Not reported"
+  },
+  assess_changed: {
+    field: "assess_changed",
+    label: "Assessment change",
+    colors: { "Changed": "#2b8cbe", "No change": "#bdbdbd" },
+    order: ["Changed", "No change"],
+    naLabel: "Not reported"
+  },
+  orientation: {
+    field: "orientation",
+    label: "Change type",
+    colors: { "Embracing": "#4daf4a", "Defensive": "#e41a1c", "Mixed": "#ff7f00" },
+    order: ["Embracing", "Defensive", "Mixed"],
+    naLabel: "No assessment change"
+  }
+};
+
+function buildLegend(schemeKey) {
+  const scheme = COLOR_SCHEMES[schemeKey];
+  const el = document.getElementById("legend");
+  el.innerHTML = "";
+  const addSwatch = (color, text) => {
+    const span = document.createElement("span");
+    span.innerHTML = `<span class="sw" style="background:${color}"></span>${text}`;
+    el.appendChild(span);
+  };
+  scheme.order.forEach(k => addSwatch(scheme.colors[k], k));
+  if (scheme.naLabel) addSwatch(NA_COLOR, scheme.naLabel);
+  addSwatch("#000", "You");
+}
+
+function drawPlot(points, model, userPoint, schemeKey = "quadrant") {
+  const scheme = COLOR_SCHEMES[schemeKey];
+  const colorFor = p => {
+    const v = p[scheme.field];
+    return (v != null && scheme.colors[v]) ? scheme.colors[v] : NA_COLOR;
+  };
+  const isNA = p => p[scheme.field] == null || !scheme.colors[p[scheme.field]];
+  const svg = document.getElementById("plot");
+  svg.innerHTML = "";
+  const W = 700, H = 500;
+  const M = { t: 30, r: 30, b: 50, l: 60 };
+  const innerW = W - M.l - M.r, innerH = H - M.t - M.b;
+
+  const allPts = points.concat([{ beh: userPoint.beh, att: userPoint.att }]);
+  const xs = allPts.map(p => p.beh), ys = allPts.map(p => p.att);
+  const xMin = Math.min(...xs) - 0.3, xMax = Math.max(...xs) + 0.3;
+  const yMin = Math.min(...ys) - 0.3, yMax = Math.max(...ys) + 0.3;
+  const sx = v => M.l + ((v - xMin) / (xMax - xMin)) * innerW;
+  const sy = v => M.t + innerH - ((v - yMin) / (yMax - yMin)) * innerH;
+
+  const NS = "http://www.w3.org/2000/svg";
+  const add = (tag, attrs, text, parent) => {
+    const el = document.createElementNS(NS, tag);
+    for (const k in attrs) el.setAttribute(k, attrs[k]);
+    if (text != null) el.textContent = text;
+    (parent || svg).appendChild(el);
+    return el;
+  };
+
+  // Axis-aligned median reference lines
+  const bx = sx(model.medians.beh), by = sy(model.medians.att);
+  add("line", { x1: bx, x2: bx, y1: M.t, y2: M.t + innerH, stroke: "#bbb", "stroke-dasharray": "4 4" });
+  add("line", { x1: M.l, x2: M.l + innerW, y1: by, y2: by, stroke: "#bbb", "stroke-dasharray": "4 4" });
+
+  // Quadrant labels in corners
+  const qlabel = (x, y, text, anchor) => add("text", {
+    x, y, "font-size": 11, fill: "#888", "text-anchor": anchor,
+    "font-family": "Inter, system-ui, sans-serif", "letter-spacing": "0.06em"
+  }, text);
+  qlabel(sx(xMax) - 8, M.t + 16,          "ENTHUSIASTIC ADOPTER", "end");   // NE
+  qlabel(sx(xMin) + 8, M.t + 16,          "POSITIVE NON-USER",    "start"); // NW
+  qlabel(sx(xMax) - 8, M.t + innerH - 8,  "PRAGMATIC ADOPTER",    "end");   // SE
+  qlabel(sx(xMin) + 8, M.t + innerH - 8,  "DISENGAGED SKEPTIC",   "start"); // SW
+
+  // Axis box + labels
+  add("line", { x1: M.l, x2: M.l + innerW, y1: M.t + innerH, y2: M.t + innerH, stroke: "#333" });
+  add("line", { x1: M.l, x2: M.l, y1: M.t, y2: M.t + innerH, stroke: "#333" });
+  add("text", {
+    x: M.l + innerW / 2, y: H - 12, "text-anchor": "middle",
+    "font-size": 12, "font-family": "Inter, system-ui, sans-serif", fill: "#333"
+  }, "Behaviour — frequency + familiarity  →");
+  add("text", {
+    x: 16, y: M.t + innerH / 2, "text-anchor": "middle",
+    "font-size": 12, "font-family": "Inter, system-ui, sans-serif", fill: "#333",
+    transform: `rotate(-90 16 ${M.t + innerH / 2})`
+  }, "Attitudes — opinions + perceptions  →");
+
+  // Low/high anchors at axis ends
+  add("text", { x: sx(xMin) + 4, y: M.t + innerH + 14, "font-size": 10, fill: "#888", "font-family": "Inter, system-ui, sans-serif" }, "low");
+  add("text", { x: sx(xMax) - 4, y: M.t + innerH + 14, "text-anchor": "end", "font-size": 10, fill: "#888", "font-family": "Inter, system-ui, sans-serif" }, "high");
+  add("text", { x: M.l - 6, y: sy(yMin) + 4, "text-anchor": "end", "font-size": 10, fill: "#888", "font-family": "Inter, system-ui, sans-serif" }, "low");
+  add("text", { x: M.l - 6, y: sy(yMax) + 4, "text-anchor": "end", "font-size": 10, fill: "#888", "font-family": "Inter, system-ui, sans-serif" }, "high");
+
+  // Existing teachers — draw NA first so coloured points sit on top
+  const naPts = points.filter(isNA);
+  const colPts = points.filter(p => !isNA(p));
+  naPts.forEach(p => {
+    add("circle", { cx: sx(p.beh), cy: sy(p.att), r: 3.5, fill: NA_COLOR, "fill-opacity": 0.35, stroke: "none" });
+  });
+  colPts.forEach(p => {
+    add("circle", { cx: sx(p.beh), cy: sy(p.att), r: 3.5, fill: colorFor(p), "fill-opacity": 0.65, stroke: "none" });
+  });
+
+  // User point
+  const ux = sx(userPoint.beh), uy = sy(userPoint.att);
+  add("circle", { cx: ux, cy: uy, r: 16, fill: "none", stroke: "#000", "stroke-width": 1.5, "stroke-opacity": 0.3 });
+  add("circle", { cx: ux, cy: uy, r: 9, fill: "#000", stroke: "#fff", "stroke-width": 2 });
+  add("text", { x: ux + 14, y: uy + 4, "font-size": 13, "font-weight": 600, "font-family": "Inter, system-ui, sans-serif" }, "You");
+}
+
+// --- Main ---------------------------------------------------------------
+let MODEL = null, POINTS = null, USER = null, COLOR_BY = "quadrant";
+
+function renderPlot() {
+  if (!USER || !MODEL || !POINTS) return;
+  drawPlot(POINTS, MODEL, USER, COLOR_BY);
+  buildLegend(COLOR_BY);
+}
+
+async function init() {
+  buildScales();
+  document.getElementById("reset").addEventListener("click", () => {
+    document.getElementById("survey").reset();
+    document.getElementById("result").classList.add("hidden");
+    document.getElementById("submit").disabled = true;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  document.querySelectorAll('input[name="colorBy"]').forEach(r => {
+    r.addEventListener("change", e => {
+      COLOR_BY = e.target.value;
+      renderPlot();
+    });
+  });
+
+  const [modelRes, pointsRes] = await Promise.all([
+    fetch("pca_model.json"),
+    fetch("pca_points.json")
+  ]);
+  MODEL = await modelRes.json();
+  POINTS = await pointsRes.json();
+
+  document.getElementById("survey").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const answers = readAnswers();
+    const user = projectUser(answers, MODEL);
+    const type = classify(user.beh, user.att, MODEL.medians);
+
+    USER = user;
+    renderPlot();
+
+    const firstWord = type.split(" ")[0];
+    const body = `
+      <div class="result-desc">
+        <p class="result-type ${firstWord}">${type}</p>
+        <p>${TYPE_DESCRIPTIONS[type]}</p>
+        <p class="scores">
+          Your scores — Behaviour: ${user.beh.toFixed(2)} (median ${MODEL.medians.beh.toFixed(2)}),
+          Attitudes: ${user.att.toFixed(2)} (median ${MODEL.medians.att.toFixed(2)}).
+          Underlying PCA: PC1 = ${user.PC1.toFixed(2)}, PC2 = ${user.PC2.toFixed(2)}.
+        </p>
+      </div>`;
+    document.getElementById("result-body").innerHTML = body;
+    document.getElementById("result").classList.remove("hidden");
+    document.getElementById("result").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+init();
+</script>
+</body>
+</html>
